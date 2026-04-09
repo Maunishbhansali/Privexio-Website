@@ -11,6 +11,8 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 import { useToast } from '@/components/ui/use-toast';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@outlook.com';
+
 const ContactPage = () => {
   usePageMeta(
     'Contact',
@@ -19,18 +21,53 @@ const ContactPage = () => {
 
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thank you for reaching out. Our team will contact you shortly.",
-    });
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service || 'Not specified',
+          message: formData.message,
+          _subject: `Privexio contact form inquiry from ${formData.name}`,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      toast({
+        title: 'Message Sent Successfully!',
+        description: 'Thank you for reaching out. Your inquiry has been submitted successfully.',
+      });
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Message could not be sent',
+        description: 'Please try again in a moment or contact us directly by phone or email.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -84,7 +121,9 @@ const ContactPage = () => {
                   <Textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="bg-background text-foreground" />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Submit Message</Button>
+                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70">
+                  {isSubmitting ? 'Sending...' : 'Submit Message'}
+                </Button>
               </form>
             </div>
 
