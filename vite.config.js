@@ -7,6 +7,7 @@ import iframeRouteRestorationPlugin from './plugins/vite-plugin-iframe-route-res
 import selectionModePlugin from './plugins/selection-mode/vite-plugin-selection-mode.js';
 
 const isDev = process.env.NODE_ENV !== 'production';
+const base = process.env.VITE_BASE_PATH || '/';
 
 const configHorizonsViteErrorHandler = `
 const observer = new MutationObserver((mutations) => {
@@ -278,6 +279,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	base,
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin(), selectionModePlugin()] : []),

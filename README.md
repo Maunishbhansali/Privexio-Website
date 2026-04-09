@@ -128,6 +128,23 @@ For production deployment, the standard output directory is:
 dist/
 ```
 
+### GitHub Pages
+
+This repository includes a GitHub Pages workflow at [.github/workflows/deploy-pages.yml](./.github/workflows/deploy-pages.yml).
+
+For a free GitHub Pages deployment on a personal GitHub Free plan, the repository typically needs to be public. After pushing the workflow:
+
+1. Open the repository on GitHub
+2. Go to `Settings` -> `Pages`
+3. Set the source to `GitHub Actions`
+4. Push to `main` and wait for the deployment workflow to finish
+
+For this project repository, the expected site URL will be:
+
+```text
+https://maunishbhansali.github.io/Privexio-Website/
+```
+
 ## Notes
 
 - The project is configured as private in [package.json](./package.json)

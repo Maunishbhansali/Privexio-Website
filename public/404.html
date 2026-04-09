@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var pathSegmentsToKeep = 1;
+        var locationData = window.location;
+        var origin = locationData.protocol + '//' + locationData.hostname + (locationData.port ? ':' + locationData.port : '');
+        var pathSegments = locationData.pathname.split('/');
+        var repoBase = pathSegments.slice(0, 1 + pathSegmentsToKeep).join('/');
+        var route = locationData.pathname.slice(repoBase.length) + locationData.search + locationData.hash;
+        var encodedRoute = route.replace(/&/g, '~and~');
+
+        window.location.replace(origin + repoBase + '/?/' + encodedRoute);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
