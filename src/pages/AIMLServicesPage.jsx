@@ -3,8 +3,14 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const AIMLServicesPage = () => {
+  usePageMeta(
+    'AI and Machine Learning',
+    'Learn how Privexio helps teams apply AI, predictive analytics, NLP, chatbots, and computer vision to business workflows.'
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />

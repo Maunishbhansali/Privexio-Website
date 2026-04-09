@@ -3,8 +3,14 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const MobileAppDevelopmentPage = () => {
+  usePageMeta(
+    'Mobile App Development',
+    'Privexio designs and develops native and cross-platform mobile applications for iOS and Android.'
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />

@@ -2,8 +2,14 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const AboutPage = () => {
+  usePageMeta(
+    'About',
+    'Learn about Privexio, our mission, vision, and values as a technology partner for modern enterprises.'
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />

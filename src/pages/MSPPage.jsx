@@ -3,9 +3,15 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import { usePageMeta } from '@/hooks/use-page-meta';
 import { Shield, Clock, ServerCog, Activity } from 'lucide-react';
 
 const MSPPage = () => {
+  usePageMeta(
+    'Managed IT Services',
+    'Explore Privexio managed IT services, proactive monitoring, cybersecurity, infrastructure management, and helpdesk support.'
+  );
+
   const features = [
     { icon: Clock, title: "24/7 Helpdesk Support", desc: "Round-the-clock technical assistance for your entire team." },
     { icon: Activity, title: "Proactive Monitoring", desc: "We identify and resolve issues before they impact your business." },

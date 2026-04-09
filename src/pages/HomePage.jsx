@@ -6,10 +6,16 @@ import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
+import { usePageMeta } from '@/hooks/use-page-meta';
 import { Link } from 'react-router-dom';
 import { Monitor, Code, Globe, Smartphone, Cloud, BrainCircuit, ShieldCheck, CheckCircle } from 'lucide-react';
 
 const HomePage = () => {
+  usePageMeta(
+    'Home',
+    'Privexio provides managed IT, software engineering, cloud, mobile, web, and AI services for growing enterprises.'
+  );
+
   const services = [
     { icon: Monitor, title: "MSP Services", description: "Comprehensive IT management, proactive support, and infrastructure monitoring.", link: "/msp" },
     { icon: Code, title: "Software Development", description: "Custom enterprise software tailored to solve complex business challenges.", link: "/software-development" },

@@ -3,8 +3,14 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const SoftwareDevelopmentPage = () => {
+  usePageMeta(
+    'Software Development',
+    'Discover Privexio custom software development services for scalable enterprise applications and product delivery.'
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />

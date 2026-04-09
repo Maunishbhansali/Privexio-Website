@@ -6,10 +6,16 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { usePageMeta } from '@/hooks/use-page-meta';
 import { useToast } from '@/components/ui/use-toast';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 const ContactPage = () => {
+  usePageMeta(
+    'Contact',
+    'Contact Privexio to discuss managed IT, software development, cloud, mobile, web, or AI project requirements.'
+  );
+
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
 
