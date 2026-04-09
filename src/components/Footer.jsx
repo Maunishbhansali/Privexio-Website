@@ -67,8 +67,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li className="flex items-start"><MapPin size={16} className="mr-2 mt-0.5 flex-shrink-0" /> 123 Tech Avenue, Suite 400<br />San Francisco, CA 94107</li>
-              <li className="flex items-center"><Phone size={16} className="mr-2 flex-shrink-0" /> +1 (555) 123-4567</li>
+              <li className="flex items-start"><MapPin size={16} className="mr-2 mt-0.5 flex-shrink-0" /> 600 John St N<br />Hamilton, ON L8L 4S3</li>
+              <li className="flex items-center">
+                <Phone size={16} className="mr-2 flex-shrink-0" />
+                <a href="tel:+12268688363" className="hover:text-primary transition-colors">+1 (226) 868-8363</a>
+              </li>
               <li className="flex items-center"><Mail size={16} className="mr-2 flex-shrink-0" /> contact@privexio.com</li>
             </ul>
           </div>

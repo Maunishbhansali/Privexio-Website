@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ContactMap from '@/components/ContactMap';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -101,7 +102,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Office Address</h4>
-                    <p className="text-muted-foreground">123 Tech Avenue, Suite 400<br/>San Francisco, CA 94107</p>
+                    <p className="text-muted-foreground">600 John St N<br/>Hamilton, ON L8L 4S3</p>
                   </div>
                 </div>
                 
@@ -111,7 +112,9 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567<br/>Mon-Fri, 9am-6pm PST</p>
+                    <a href="tel:+12268688363" className="text-muted-foreground hover:text-primary transition-colors">
+                      +1 (226) 868-8363
+                    </a>
                   </div>
                 </div>
 
@@ -121,8 +124,33 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">contact@privexio.com<br/>support@privexio.com</p>
+                    <p className="text-muted-foreground">contact@privexio.com</p>
                   </div>
+                </div>
+              </div>
+
+              <div className="rounded-lg border border-border bg-card p-3 shadow-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Find Us</h3>
+                <div className="overflow-hidden rounded-md border border-border bg-muted">
+                  <ContactMap />
+                </div>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a
+                    href="https://www.openstreetmap.org/?mlat=43.2755&mlon=-79.8505#map=16/43.2755/-79.8505"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex text-sm font-medium text-primary hover:text-primary/80"
+                  >
+                    Open in OpenStreetMap
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=600+John+St+N,+Hamilton,+ON+L8L+4S3"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex text-sm font-medium text-primary hover:text-primary/80"
+                  >
+                    Get directions
+                  </a>
                 </div>
               </div>
             </div>

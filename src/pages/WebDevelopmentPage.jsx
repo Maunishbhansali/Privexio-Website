@@ -24,6 +24,7 @@ const WebDevelopmentPage = () => {
           <p className="text-lg text-muted-foreground mb-8">
             Your website is the digital front door to your business. We build modern, responsive, and SEO-optimized web solutions using the latest tech stacks (React, Next.js, Node.js) to ensure lightning-fast load times and exceptional user experiences.
           </p>
+
           <div className="grid md:grid-cols-2 gap-8 mt-12">
             <div className="bg-card border border-border p-6 rounded-lg">
               <h3 className="font-bold text-xl mb-3">Corporate Websites</h3>
