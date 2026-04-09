@@ -115,6 +115,7 @@ const ContactPage = () => {
                     <a href="tel:+12268688363" className="text-muted-foreground hover:text-primary transition-colors">
                       +1 (226) 868-8363
                     </a>
+                    <p className="text-muted-foreground">Mon-Fri, 9am-6pm EST</p>
                   </div>
                 </div>
 
