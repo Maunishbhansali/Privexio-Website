@@ -139,10 +139,16 @@ For a free GitHub Pages deployment on a personal GitHub Free plan, the repositor
 3. Set the source to `GitHub Actions`
 4. Push to `main` and wait for the deployment workflow to finish
 
-For this project repository, the expected site URL will be:
+If you are using the default GitHub Pages project URL, the expected site URL will be:
 
 ```text
 https://maunishbhansali.github.io/Privexio-Website/
+```
+
+If you attach a custom domain such as `privexio.com`, the site should instead be served from the root domain:
+
+```text
+https://privexio.com/
 ```
 
 ## Notes
