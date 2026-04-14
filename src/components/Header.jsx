@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Layers } from 'lucide-react';
@@ -10,13 +9,14 @@ const Header = () => {
   const { pathname } = useLocation();
 
   const services = [
-    { name: 'MSP Services', path: '/msp' },
-    { name: 'Software Development', path: '/software-development' },
-    { name: 'Web Development', path: '/web-development' },
-    { name: 'Mobile Apps', path: '/mobile-apps' },
-    { name: 'Cloud Solutions', path: '/cloud-solutions' },
-    { name: 'AI/ML Services', path: '/ai-ml' },
-    { name: 'Additional Services', path: '/additional-services' },
+    { name: 'Managed IT Services', path: '/managed-it', icon: '🖥️' },
+    { name: 'Cybersecurity', path: '/cybersecurity', icon: '🔒' },
+    { name: 'Cloud Solutions & Migration', path: '/cloud-solutions', icon: '☁️' },
+    { name: 'Custom Software Development', path: '/software-development', icon: '💻' },
+    { name: 'Website & SEO Solutions', path: '/web-development', icon: '🌐' },
+    { name: 'AI Automation & Business Process Optimization', path: '/ai-ml', icon: '🤖' },
+    { name: 'Mobile App Development', path: '/mobile-apps', icon: '📱' },
+    { name: 'IT Consulting & Digital Transformation', path: '/it-consulting', icon: '💡' },
   ];
 
   useEffect(() => {
@@ -50,16 +50,22 @@ const Header = () => {
               Services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
             {isServicesOpen && (
-              <div id="desktop-services-menu" className="absolute top-full left-0 w-64 bg-card border border-border rounded-md shadow-lg py-2">
+              <div id="desktop-services-menu" className="absolute top-full left-0 w-72 bg-card border border-border rounded-md shadow-xl py-3 z-50">
                 {services.map((service) => (
-                  <Link key={service.path} to={service.path} className="block px-4 py-2 text-sm text-foreground hover:bg-primary/10 hover:text-primary">
-                    {service.name}
+                  <Link
+                    key={service.path}
+                    to={service.path}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                  >
+                    <span className="text-lg">{service.icon}</span>
+                    <span className="font-medium">{service.name}</span>
                   </Link>
                 ))}
               </div>
             )}
           </div>
 
+          <Link to="/case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
           <Link to="/about" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
           <Link to="/contact" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
           
@@ -90,11 +96,12 @@ const Header = () => {
             <div className="pl-4 space-y-2 border-l-2 border-border ml-2">
               {services.map((service) => (
                 <Link key={service.path} to={service.path} className="block text-sm text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
-                  {service.name}
+                  <span className="mr-2">{service.icon}</span>{service.name}
                 </Link>
               ))}
             </div>
           </div>
+          <Link to="/case-studies" className="block text-sm font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link>
           <Link to="/about" className="block text-sm font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
           <Link to="/contact" className="block text-sm font-medium text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         </div>
