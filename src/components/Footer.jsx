@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Layers, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, MessageCircle } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { WHATSAPP_URL } from '@/components/WhatsAppChat';
+import { serviceCatalog } from '@/data/serviceCatalog';
 
 const Footer = () => {
   const { toast } = useToast();
@@ -30,8 +32,12 @@ const Footer = () => {
               <span className="font-bold text-2xl tracking-tight text-white">Privexio</span>
             </Link>
             <p className="text-slate-400 text-sm">
-              Your trusted partner for comprehensive enterprise IT services and software development solutions.
+              Managed IT, software, web, mobile, cloud, and AI services for ambitious North American businesses.
             </p>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              WhatsApp Privexio
+            </a>
             <div className="flex space-x-4">
               <button type="button" onClick={handleSocialClick} className="text-slate-400 hover:text-primary transition-colors" aria-label="LinkedIn coming soon">
                 <Linkedin size={20} />
@@ -49,6 +55,7 @@ const Footer = () => {
             <h4 className="font-bold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/#case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
               <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
@@ -57,10 +64,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link to="/msp" className="hover:text-primary transition-colors">MSP Services</Link></li>
-              <li><Link to="/software-development" className="hover:text-primary transition-colors">Software Dev</Link></li>
-              <li><Link to="/cloud-solutions" className="hover:text-primary transition-colors">Cloud Solutions</Link></li>
-              <li><Link to="/ai-ml" className="hover:text-primary transition-colors">AI & ML</Link></li>
+              {serviceCatalog.map((service) => (
+                <li key={service.path}><Link to={service.path} className="hover:text-primary transition-colors">{service.navName}</Link></li>
+              ))}
             </ul>
           </div>
 

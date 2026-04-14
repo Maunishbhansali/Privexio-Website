@@ -1,32 +1,22 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import ServiceHub from '@/components/ServiceHub';
+import { getServiceBySlug } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const AIMLServicesPage = () => {
-  usePageMeta(
-    'AI and Machine Learning',
-    'Learn how Privexio helps teams apply AI, predictive analytics, NLP, chatbots, and computer vision to business workflows.'
-  );
+  const service = getServiceBySlug('ai-ml-services');
+  usePageMeta('AI and Machine Learning Services', service.description);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <div className="flex-grow">
-        <section className="bg-slate-900 py-24 text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">AI & Machine Learning</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">Harness the power of artificial intelligence to automate processes and unlock data insights.</p>
-        </section>
-        <section className="section-padding container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">Data-Driven Decision Making</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            We integrate state-of-this-art AI and Machine Learning models into your business applications. From predictive analytics and Natural Language Processing (NLP) to intelligent chatbots and computer vision, Privexio helps you turn raw data into a strategic asset.
-          </p>
-        </section>
-      </div>
-      <CTASection heading="Innovate with Artificial Intelligence" description="Ready to explore AI use cases for your business? Schedule an AI discovery workshop." />
+      <main className="flex-grow">
+        <ServiceHub service={service} />
+      </main>
+      <CTASection heading="Adopt AI where it creates measurable business value" description="Identify practical generative AI, analytics, chatbot, and automation opportunities for your team." buttonText="Book an AI Opportunity Workshop" />
       <Footer />
     </div>
   );

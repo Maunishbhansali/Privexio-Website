@@ -91,4 +91,30 @@
   .section-padding {
     @apply py-16 md:py-24;
   }
+  .soft-reveal {
+    animation: softReveal 0.7s ease-out both;
+  }
+  .float-slow {
+    animation: floatSlow 7s ease-in-out infinite;
+  }
+}
+
+@keyframes softReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
