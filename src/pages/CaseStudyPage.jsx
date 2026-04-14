@@ -1,9 +1,10 @@
 import React from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Clock, MapPin } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import NotFoundPage from '@/pages/NotFoundPage';
 import { getCaseStudy } from '@/data/caseStudies';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
@@ -13,7 +14,7 @@ const CaseStudyPage = ({ slug }) => {
   usePageMeta(caseStudy ? caseStudy.title : 'Case Study', caseStudy?.summary);
 
   if (!caseStudy) {
-    return <Navigate to="/" replace />;
+    return <NotFoundPage />;
   }
 
   return (
@@ -90,7 +91,11 @@ const CaseStudyPage = ({ slug }) => {
           </div>
         </section>
       </main>
-      <CTASection heading="Want results like this?" description="Share your current challenge and we’ll outline a realistic project path with clear next steps." buttonText="Plan a Similar Project" />
+      <CTASection
+        heading="Want results like this?"
+        description="Share your current challenge and we'll outline a realistic project path with clear next steps."
+        buttonText="Plan a Similar Project"
+      />
       <Footer />
     </div>
   );

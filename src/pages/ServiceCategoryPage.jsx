@@ -1,9 +1,10 @@
 import React from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, MessageCircle, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import NotFoundPage from '@/pages/NotFoundPage';
 import { Button } from '@/components/ui/button';
 import { WHATSAPP_URL } from '@/components/WhatsAppChat';
 import { caseStudies } from '@/data/caseStudies';
@@ -21,7 +22,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
   );
 
   if (!service || !category) {
-    return <Navigate to="/" replace />;
+    return <NotFoundPage />;
   }
 
   return (
@@ -99,7 +100,11 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
           </section>
         )}
       </main>
-      <CTASection heading={`Ready to explore ${category.title}?`} description="Tell us where your team is today and we’ll recommend the smartest next step." buttonText="Start the Conversation" />
+      <CTASection
+        heading={`Ready to explore ${category.title}?`}
+        description="Tell us where your team is today and we'll recommend the smartest next step."
+        buttonText="Start the Conversation"
+      />
       <Footer />
     </div>
   );

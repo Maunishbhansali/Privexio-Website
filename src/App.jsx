@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import ScrollToTop from '@/components/ScrollToTop';
 import WhatsAppChat from '@/components/WhatsAppChat';
@@ -16,6 +16,7 @@ import ServiceCategoryPage from '@/pages/ServiceCategoryPage';
 import CaseStudyPage from '@/pages/CaseStudyPage';
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 const CategoryRoute = ({ serviceSlug }) => {
   const { categorySlug } = useParams();
@@ -50,7 +51,7 @@ function App() {
         <Route path="/case-studies/:slug" element={<CaseStudyRoute />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <WhatsAppChat />
       <Toaster />

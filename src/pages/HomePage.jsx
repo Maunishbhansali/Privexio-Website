@@ -100,12 +100,12 @@ const HomePage = () => {
             <h2 className="mt-3 text-3xl md:text-5xl font-bold text-foreground">Every service now has trend-focused categories and dedicated pages.</h2>
             <p className="mt-5 text-muted-foreground text-lg">Explore the technology areas buyers are actively researching in North America, from AI automation and cloud cost optimization to managed cybersecurity and conversion-focused websites.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {serviceCatalog.slice(0, 6).map((service) => (
               <ServiceCard key={service.title} icon={service.icon} title={service.title} description={service.description} link={service.path} />
             ))}
           </div>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {serviceCatalog.flatMap((service) => service.categories.slice(0, 2).map((category) => ({ service, category }))).slice(0, 9).map(({ service, category }) => (
               <Link key={`${service.slug}-${category.slug}`} to={`${service.path}/${category.slug}`} className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-lg smooth-transition">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{service.navName}</p>
@@ -122,12 +122,12 @@ const HomePage = () => {
 
       <section className="section-padding bg-secondary/5">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col items-center gap-16 lg:flex-row">
             <div className="lg:w-1/2">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Why choose Privexio</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground mb-6">Practical strategy, polished delivery, and support after launch.</h2>
-              <p className="text-muted-foreground text-lg mb-8">
-                Inspired by modern SaaS motion patterns like Circula’s clean reveal cards and dashboard-style storytelling, the site now uses lighter, more useful animations where they support clarity instead of distraction.
+              <h2 className="mt-3 mb-6 text-3xl font-bold text-foreground md:text-4xl">Practical strategy, polished delivery, and support after launch.</h2>
+              <p className="mb-8 text-lg text-muted-foreground">
+                Inspired by modern SaaS motion patterns like Circula&apos;s clean reveal cards and dashboard-style storytelling, the site now uses lighter, more useful animations where they support clarity instead of distraction.
               </p>
               <div className="space-y-4">
                 {[
@@ -143,7 +143,7 @@ const HomePage = () => {
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2 w-full">
+            <div className="w-full lg:w-1/2">
               <div className="rounded-[2rem] bg-white p-5 shadow-xl">
                 <div className="rounded-[1.5rem] bg-slate-950 p-7 text-white">
                   <p className="text-sm uppercase tracking-[0.2em] text-primary">North America SEO map</p>
@@ -159,16 +159,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="case-studies" className="section-padding bg-background scroll-mt-24">
+      <section id="case-studies" className="section-padding scroll-mt-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mb-16">
+          <div className="mb-16 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Case Studies</p>
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold text-foreground">Project stories with believable details and their own pages.</h2>
+            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Project stories with believable details and their own pages.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Each case study now links to a dedicated page with client context, challenge, solution, timeline, stack, and measurable results.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredCaseStudies.map((caseStudy) => (
               <TestimonialCard
                 key={caseStudy.slug}
@@ -186,7 +186,7 @@ const HomePage = () => {
 
       <CTASection
         heading="Ready to turn your website into a serious growth channel?"
-        description="Tell us your service priority and we’ll recommend the highest-impact path across IT, software, cloud, web, mobile, or AI."
+        description="Tell us your service priority and we'll recommend the highest-impact path across IT, software, cloud, web, mobile, or AI."
         buttonText="Get a Free Consultation"
       />
 
