@@ -35,34 +35,36 @@ const partnerMarks = [
 
 const marqueeLogos = [...partnerMarks, ...partnerMarks];
 
-const BrandMark = ({ icon }) => (
-  <div className="partner-logo-mark flex h-18 items-center justify-center text-slate-800/85">
-    <svg viewBox="0 0 24 24" className="h-12 w-12 fill-current" aria-hidden="true">
+const BrandMark = ({ icon, compact = false }) => (
+  <div className={`partner-logo-mark flex items-center justify-center text-slate-800/85 ${compact ? 'h-14' : 'h-12'}`}>
+    <svg viewBox="0 0 24 24" className={`${compact ? 'h-7 w-7' : 'h-7 w-7'} fill-current`} aria-hidden="true">
       <path d={icon.path} />
     </svg>
-    <span className="ml-2 text-2xl font-semibold tracking-tight text-slate-800/90">{icon.title}</span>
+    <span className={`${compact ? 'ml-3 text-lg' : 'ml-2 text-[1.05rem]'} font-semibold tracking-tight text-slate-800/90`}>{icon.title}</span>
   </div>
 );
 
-const PartnerLogos = () => {
+const PartnerLogos = ({ compact = false }) => {
   return (
-    <section className="page-section overflow-hidden bg-white">
+    <section className={`${compact ? 'overflow-hidden bg-slate-50/90' : 'page-section overflow-hidden bg-white'}`}>
       <div className="page-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Platforms we work across</p>
-          <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Built for modern cloud, network, and enterprise environments.</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Privexio supports projects that connect infrastructure, security, applications, and growth systems across the platforms business teams already depend on.
-          </p>
-        </div>
+        {!compact && (
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Platforms we work across</p>
+            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Built for modern cloud, network, and enterprise environments.</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Privexio supports projects that connect infrastructure, security, applications, and growth systems across the platforms business teams already depend on.
+            </p>
+          </div>
+        )}
 
-        <div className="relative mt-14 overflow-hidden">
+        <div className={`relative overflow-hidden ${compact ? 'py-8' : 'mt-14'}`}>
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white via-white/90 to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white via-white/90 to-transparent" />
 
           <div className="partner-marquee-track items-center text-slate-800/90">
             {marqueeLogos.map((partner, index) => (
-              <BrandMark key={`${partner.slug}-${index}`} icon={partner} />
+              <BrandMark key={`${partner.slug}-${index}`} icon={partner} compact={compact} />
             ))}
           </div>
         </div>

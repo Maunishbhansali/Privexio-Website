@@ -8,7 +8,6 @@ import MetricsSection from '@/components/MetricsSection';
 import PartnerLogos from '@/components/PartnerLogos';
 import ServiceCard from '@/components/ServiceCard';
 import CTASection from '@/components/CTASection';
-import TrustBar from '@/components/TrustBar';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { caseStudies } from '@/data/caseStudies';
@@ -104,7 +103,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <TrustBar />
+      <PartnerLogos compact />
 
       <section className="page-section bg-background">
         <div className="page-container">
@@ -163,8 +162,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <PartnerLogos />
 
       <section id="case-studies" className="page-section scroll-mt-24 bg-background relative">
         <div className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
