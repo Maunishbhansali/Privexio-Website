@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Layers, MessageCircle } from 'lucide-react';
+import { CalendarDays, ChevronDown, Layers, Mail, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { WHATSAPP_URL } from '@/components/WhatsAppChat';
+import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
 const Header = () => {
@@ -16,24 +16,24 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75 border-b border-border">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center space-x-2">
           <Layers className="h-8 w-8 text-primary" />
-          <span className="font-bold text-2xl tracking-tight text-primary">Privexio</span>
+          <span className="text-2xl font-bold tracking-tight text-primary">Privexio</span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-7">
+        <nav className="hidden items-center space-x-7 md:flex">
           <Link to="/" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Home</Link>
 
           <div
-            className="relative group"
+            className="group relative"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             <button
               type="button"
-              className="flex items-center text-sm font-medium text-foreground hover:text-primary smooth-transition py-2"
+              className="flex items-center py-2 text-sm font-medium text-foreground hover:text-primary smooth-transition"
               aria-expanded={isServicesOpen}
               aria-haspopup="menu"
               aria-controls="desktop-services-menu"
@@ -42,7 +42,7 @@ const Header = () => {
               Services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
             {isServicesOpen && (
-              <div id="desktop-services-menu" className="absolute top-full left-0 w-[34rem] bg-card border border-border rounded-2xl shadow-2xl p-4 grid grid-cols-2 gap-2">
+              <div id="desktop-services-menu" className="absolute left-0 top-full grid w-[44rem] grid-cols-2 gap-2 rounded-2xl border border-border bg-card p-4 shadow-2xl">
                 {serviceCatalog.map((service) => {
                   const Icon = service.icon;
                   return (
@@ -50,7 +50,7 @@ const Header = () => {
                       <Icon className="mt-0.5 h-5 w-5 flex-shrink-0" />
                       <span>
                         <span className="block font-semibold">{service.navName}</span>
-                        <span className="mt-1 block text-xs text-muted-foreground">{service.categories.length} trending category pages</span>
+                        <span className="mt-1 block text-xs text-muted-foreground">{service.categories.length} specialized solution areas</span>
                       </span>
                     </Link>
                   );
@@ -59,24 +59,27 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/#case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
+          <Link to="/case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
           <Link to="/about" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
           <Link to="/contact" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+          <a href={MAILTO_URL}>
             <Button variant="outline" className="rounded-full">
-              <MessageCircle className="mr-2 h-4 w-4" />
-              WhatsApp
+              <Mail className="mr-2 h-4 w-4" />
+              Email Us
             </Button>
           </a>
-          <Link to="/contact">
-            <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">Get Started</Button>
-          </Link>
+          <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
+            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <CalendarDays className="mr-2 h-4 w-4" />
+              Schedule a Consultation
+            </Button>
+          </a>
         </nav>
 
         <button
           type="button"
-          className="md:hidden p-2 text-foreground"
+          className="p-2 text-foreground md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
@@ -87,11 +90,11 @@ const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div id="mobile-navigation" className="md:hidden border-t border-border bg-background px-4 py-4 space-y-4">
+        <div id="mobile-navigation" className="space-y-4 border-t border-border bg-background px-4 py-4 md:hidden">
           <Link to="/" className="block text-sm font-medium text-foreground">Home</Link>
           <div className="space-y-2">
-            <span className="block text-sm font-bold text-muted-foreground uppercase tracking-wider">Services</span>
-            <div className="pl-4 space-y-2 border-l-2 border-border ml-2">
+            <span className="block text-sm font-bold uppercase tracking-wider text-muted-foreground">Services</span>
+            <div className="ml-2 space-y-2 border-l-2 border-border pl-4">
               {serviceCatalog.map((service) => (
                 <Link key={service.path} to={service.path} className="block text-sm text-foreground">
                   {service.navName}
@@ -99,12 +102,16 @@ const Header = () => {
               ))}
             </div>
           </div>
-          <Link to="/#case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
+          <Link to="/case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
           <Link to="/about" className="block text-sm font-medium text-foreground">About</Link>
           <Link to="/contact" className="block text-sm font-medium text-foreground">Contact</Link>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm font-bold text-[#128C7E]">
-            <MessageCircle className="mr-2 h-4 w-4" />
-            Chat on WhatsApp
+          <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm font-bold text-primary">
+            <CalendarDays className="mr-2 h-4 w-4" />
+            Schedule a Consultation
+          </a>
+          <a href={MAILTO_URL} className="inline-flex items-center text-sm font-bold text-primary">
+            <Mail className="mr-2 h-4 w-4" />
+            Email Us
           </a>
         </div>
       )}

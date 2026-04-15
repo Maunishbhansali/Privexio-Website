@@ -23,7 +23,7 @@ const CaseStudyPage = ({ slug }) => {
       <main className="flex-grow">
         <section className="bg-slate-950 px-4 py-24 text-white">
           <div className="container mx-auto max-w-5xl">
-            <Link to="/#case-studies" className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
+            <Link to="/case-studies" className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to case studies
             </Link>

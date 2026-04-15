@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, MessageCircle, TrendingUp } from 'lucide-react';
+import { ArrowRight, CalendarDays, CheckCircle, Mail, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { WHATSAPP_URL } from '@/components/WhatsAppChat';
+import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -28,12 +28,15 @@ const ServiceHub = ({ service }) => {
             <h1 className="max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">{service.title}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">{service.hero}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact">
-                <Button size="lg" className="w-full rounded-full px-8 py-6 text-base sm:w-auto">{service.primaryCta}</Button>
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
+                <Button size="lg" className="w-full rounded-full px-8 py-6 text-base sm:w-auto">
+                  <CalendarDays className="mr-2 h-5 w-5" />
+                  {service.primaryCta}
+                </Button>
+              </a>
+              <a href={MAILTO_URL}>
                 <Button size="lg" variant="outline" className="w-full rounded-full border-white/40 bg-white/10 px-8 py-6 text-base text-white hover:bg-white hover:text-slate-950 sm:w-auto">
-                  <MessageCircle className="mr-2 h-5 w-5" />
+                  <Mail className="mr-2 h-5 w-5" />
                   {service.secondaryCta}
                 </Button>
               </a>
@@ -55,7 +58,7 @@ const ServiceHub = ({ service }) => {
                   <Icon className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {service.stats.map((stat) => (
                   <div key={stat} className="flex items-center justify-between rounded-2xl bg-slate-100 px-4 py-3">
                     <span className="font-medium">{stat}</span>
@@ -71,8 +74,8 @@ const ServiceHub = ({ service }) => {
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Trending categories</p>
-            <h2 className="mt-3 text-3xl font-bold md:text-5xl">Focused pages for the services buyers are searching for now.</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Specialized solution areas</p>
+            <h2 className="mt-3 text-3xl font-bold md:text-5xl">Explore the focused capabilities inside this service line.</h2>
             <p className="mt-5 text-lg text-muted-foreground">{service.description}</p>
           </div>
           <div className="grid gap-7 lg:grid-cols-3">
@@ -93,7 +96,7 @@ const ServiceHub = ({ service }) => {
                 <p className="mt-4 text-sm font-semibold text-primary">{category.trend}</p>
                 <p className="mt-4 flex-grow text-muted-foreground">{category.intro}</p>
                 <Link to={`${service.path}/${category.slug}`} className="mt-6 inline-flex items-center font-semibold text-primary">
-                  Explore this category
+                  Explore this service area
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.article>

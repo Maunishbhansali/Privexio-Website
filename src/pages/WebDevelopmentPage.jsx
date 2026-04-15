@@ -7,8 +7,8 @@ import { getServiceBySlug } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const WebDevelopmentPage = () => {
-  const service = getServiceBySlug('web-development');
-  usePageMeta('Web Development and SEO Websites', service.description);
+  const service = getServiceBySlug('web-development-seo-solutions');
+  usePageMeta('Web Development and SEO Solutions', service.description);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -16,7 +16,7 @@ const WebDevelopmentPage = () => {
       <main className="flex-grow">
         <ServiceHub service={service} />
       </main>
-      <CTASection heading="Turn your website into a lead-generation asset" description="Get SEO-ready architecture, stronger CTAs, and conversion-focused web development." buttonText="Get a Website Growth Plan" />
+      <CTASection heading="Turn your website into a lead-generation asset" description="Get SEO-ready architecture, stronger CTAs, and conversion-focused web development." buttonText="Plan My Website Refresh" secondaryText="Contact Us" secondaryLink="/contact" />
       <Footer />
     </div>
   );

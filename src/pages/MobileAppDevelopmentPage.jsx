@@ -16,7 +16,7 @@ const MobileAppDevelopmentPage = () => {
       <main className="flex-grow">
         <ServiceHub service={service} />
       </main>
-      <CTASection heading="Launch a mobile app users will keep using" description="Plan a secure iOS, Android, or cross-platform app with field, customer, or regulated workflows." buttonText="Plan My Mobile App" />
+      <CTASection heading="Launch a mobile app users will keep using" description="Plan a secure iOS, Android, or cross-platform app with field, customer, or regulated workflows." buttonText="Schedule an App Planning Call" secondaryText="Contact Us" secondaryLink="/contact" />
       <Footer />
     </div>
   );

@@ -9,7 +9,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { usePageMeta } from '@/hooks/use-page-meta';
 import { useToast } from '@/components/ui/use-toast';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { CalendarDays, MapPin, Phone, Mail } from 'lucide-react';
+import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@outlook.com';
 
@@ -106,12 +107,14 @@ const ContactPage = () => {
                     <Label htmlFor="service">Service Interest</Label>
                     <select id="service" name="service" value={formData.service} onChange={handleChange} className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                       <option value="">Select a service...</option>
-                      <option value="msp">MSP Services</option>
-                      <option value="software">Software Development</option>
-                      <option value="web">Web Development</option>
-                      <option value="cloud">Cloud Solutions</option>
-                      <option value="ai">AI/ML</option>
-                      <option value="other">Other</option>
+                      <option value="managed-it">Managed IT Services</option>
+                      <option value="software">Custom Software Development</option>
+                      <option value="web-seo">Web Development and SEO Solutions</option>
+                      <option value="cybersecurity">Cybersecurity</option>
+                      <option value="ai-automation">AI Automation &amp; Business Process Optimization</option>
+                      <option value="mobile">Mobile App Development</option>
+                      <option value="cloud">Cloud Solutions &amp; Migration</option>
+                      <option value="consulting">IT Consulting &amp; Digital Transformation</option>
                     </select>
                   </div>
                 </div>
@@ -131,7 +134,17 @@ const ContactPage = () => {
             <div className="lg:w-1/3 space-y-8">
               <div>
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                <p className="text-muted-foreground mb-8">Prefer to talk directly? Reach out via phone or email during our business hours.</p>
+                <p className="text-muted-foreground mb-8">Prefer to move faster? Schedule a consultation or email us directly during business hours.</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+                    <CalendarDays className="mr-2 h-4 w-4" />
+                    Schedule a Consultation
+                  </a>
+                  <a href={MAILTO_URL} className="inline-flex items-center rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">
+                    <Mail className="mr-2 h-4 w-4" />
+                    Email Us
+                  </a>
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -164,7 +177,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">contact@privexio.com</p>
+                    <a href={MAILTO_URL} className="text-muted-foreground hover:text-primary transition-colors">{CONTACT_EMAIL}</a>
                   </div>
                 </div>
               </div>

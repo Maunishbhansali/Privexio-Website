@@ -16,7 +16,7 @@ const CloudSolutionsPage = () => {
       <main className="flex-grow">
         <ServiceHub service={service} />
       </main>
-      <CTASection heading="Modernize cloud without surprise costs" description="Audit your cloud environment, reduce waste, and plan secure AWS, Azure, or Google Cloud improvements." buttonText="Audit My Cloud Costs" />
+      <CTASection heading="Modernize cloud without surprise costs" description="Audit your cloud environment, reduce waste, and plan secure AWS, Azure, or Google Cloud improvements." buttonText="Schedule a Cloud Review" secondaryText="Contact Us" secondaryLink="/contact" />
       <Footer />
     </div>
   );

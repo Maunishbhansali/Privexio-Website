@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, MessageCircle, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import NotFoundPage from '@/pages/NotFoundPage';
-import { Button } from '@/components/ui/button';
-import { WHATSAPP_URL } from '@/components/WhatsAppChat';
 import { caseStudies } from '@/data/caseStudies';
 import { getCategory, getServiceBySlug } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -34,19 +32,13 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
             <Link to={service.path} className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               Back to {service.title}
             </Link>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Trending {service.navName} category</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Specialized solution area</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">{category.title}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">{category.intro}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact">
-                <Button size="lg" className="w-full rounded-full px-8 py-6 sm:w-auto">Request a Category Roadmap</Button>
+            <div className="mt-8">
+              <Link to="/contact" className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90">
+                Request a Category Roadmap
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                <Button size="lg" variant="outline" className="w-full rounded-full border-white/40 bg-white/10 px-8 py-6 text-white hover:bg-white hover:text-slate-950 sm:w-auto">
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Chat on WhatsApp
-                </Button>
-              </a>
             </div>
           </div>
         </section>
@@ -57,10 +49,10 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <TrendingUp className="h-6 w-6" />
               </div>
-              <h2 className="text-2xl font-bold">Why this is trending</h2>
+              <h2 className="text-2xl font-bold">Why this matters right now</h2>
               <p className="mt-4 text-muted-foreground">{category.trend}</p>
               <div className="mt-7 rounded-2xl bg-muted p-5">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">SEO focus</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Search intent</p>
                 <p className="mt-2 text-sm text-muted-foreground">{service.keywords}</p>
               </div>
             </aside>
@@ -103,7 +95,9 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
       <CTASection
         heading={`Ready to explore ${category.title}?`}
         description="Tell us where your team is today and we'll recommend the smartest next step."
-        buttonText="Start the Conversation"
+        buttonText="Schedule a Consultation"
+        secondaryText="Contact Us"
+        secondaryLink="/contact"
       />
       <Footer />
     </div>

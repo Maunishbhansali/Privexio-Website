@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, MessageCircle, Star } from 'lucide-react';
+import { CalendarDays, CheckCircle, Mail, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
 import ServiceCard from '@/components/ServiceCard';
-import TestimonialCard from '@/components/TestimonialCard';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
-import { WHATSAPP_URL } from '@/components/WhatsAppChat';
+import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { caseStudies } from '@/data/caseStudies';
 import { serviceCatalog } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -18,8 +17,6 @@ const HomePage = () => {
     'Managed IT, Software, Cloud, Web, Mobile and AI Services in North America',
     'Privexio provides managed IT, cybersecurity, software development, web development, mobile apps, cloud solutions, and AI automation for businesses across Canada and North America.'
   );
-
-  const featuredCaseStudies = caseStudies.slice(0, 6);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -35,16 +32,19 @@ const HomePage = () => {
               Build, secure, and scale your business with Privexio.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Managed IT, cybersecurity, custom software, SEO-ready websites, mobile apps, cloud modernization, and practical AI automation for growing teams across Canada and the United States.
+              Managed IT, cybersecurity, custom software, web and SEO solutions, mobile apps, cloud modernization, AI automation, and digital transformation support for growing teams across Canada and the United States.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact">
-                <Button size="lg" className="w-full rounded-full px-8 py-6 text-lg sm:w-auto">Get a Free Consultation</Button>
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+              <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
+                <Button size="lg" className="w-full rounded-full px-8 py-6 text-lg sm:w-auto">
+                  <CalendarDays className="mr-2 h-5 w-5" />
+                  Schedule a Consultation
+                </Button>
+              </a>
+              <a href={MAILTO_URL}>
                 <Button size="lg" variant="outline" className="w-full rounded-full px-8 py-6 text-lg sm:w-auto">
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Direct WhatsApp Chat
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact Us
                 </Button>
               </a>
             </div>
@@ -58,15 +58,15 @@ const HomePage = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 28 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.65, delay: 0.1 }} className="relative">
-            <div className="grid gap-5 md:grid-cols-[0.75fr_1fr]">
+            <div className="grid gap-5 md:grid-cols-[0.85fr_1fr]">
               <div className="space-y-5">
                 <div className="rounded-[1.5rem] bg-slate-200 p-4 shadow-sm">
-                  <div className="rounded-2xl bg-white p-5 text-center font-bold text-slate-950">SOC-ready security</div>
+                  <div className="rounded-2xl bg-white p-5 text-center font-bold text-slate-950">Security-first delivery</div>
                 </div>
                 <div className="rounded-[1.75rem] bg-slate-950 p-6 text-white shadow-2xl">
                   <p className="text-sm uppercase tracking-[0.2em] text-primary">Live roadmap</p>
-                  <p className="mt-3 text-3xl font-bold text-white">7 service hubs</p>
-                  <p className="mt-2 text-sm text-slate-300">Each with dedicated trending category pages.</p>
+                  <p className="mt-3 text-3xl font-bold text-white">8 service pillars</p>
+                  <p className="mt-2 text-sm text-slate-300">Focused offers with specialized solution areas inside each service.</p>
                 </div>
               </div>
               <div className="rounded-[2rem] bg-slate-100 p-5 shadow-xl">
@@ -74,15 +74,23 @@ const HomePage = () => {
                   <div className="mb-6 flex items-center justify-between">
                     <div>
                       <p className="text-sm text-slate-500">Privexio project view</p>
-                      <p className="text-2xl font-bold text-slate-950">Growth stack</p>
+                      <p className="text-2xl font-bold text-slate-950">Delivery stack</p>
                     </div>
                     <div className="h-10 w-10 rounded-full bg-slate-950" />
                   </div>
-                  <div className="space-y-3">
-                    {['Managed IT baseline', 'SEO web architecture', 'AI workflow automation', 'Cloud cost optimization'].map((item, index) => (
-                      <div key={item} className="flex items-center justify-between rounded-2xl bg-slate-100 px-4 py-3">
-                        <span className="text-sm font-semibold text-slate-800">{item}</span>
-                        <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">Q{index + 1}</span>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      'Managed IT',
+                      'Cybersecurity',
+                      'Cloud migration',
+                      'Custom software',
+                      'Web and SEO',
+                      'AI automation',
+                      'Mobile apps',
+                      'IT consulting',
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-800">
+                        {item}
                       </div>
                     ))}
                   </div>
@@ -95,26 +103,16 @@ const HomePage = () => {
 
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Services built for search and sales</p>
-            <h2 className="mt-3 text-3xl md:text-5xl font-bold text-foreground">Every service now has trend-focused categories and dedicated pages.</h2>
-            <p className="mt-5 text-muted-foreground text-lg">Explore the technology areas buyers are actively researching in North America, from AI automation and cloud cost optimization to managed cybersecurity and conversion-focused websites.</p>
+            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Eight focused service lines, each with deeper solution areas inside.</h2>
+            <p className="mt-5 text-lg text-muted-foreground">
+              The homepage now stays high-level. Each service card takes you into the more specialized offers and sub-services inside that capability.
+            </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {serviceCatalog.slice(0, 6).map((service) => (
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+            {serviceCatalog.map((service) => (
               <ServiceCard key={service.title} icon={service.icon} title={service.title} description={service.description} link={service.path} />
-            ))}
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {serviceCatalog.flatMap((service) => service.categories.slice(0, 2).map((category) => ({ service, category }))).slice(0, 9).map(({ service, category }) => (
-              <Link key={`${service.slug}-${category.slug}`} to={`${service.path}/${category.slug}`} className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-lg smooth-transition">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{service.navName}</p>
-                <h3 className="mt-2 font-bold text-foreground">{category.title}</h3>
-                <span className="mt-3 inline-flex items-center text-sm font-semibold text-primary">
-                  View category page
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
             ))}
           </div>
         </div>
@@ -131,10 +129,10 @@ const HomePage = () => {
               </p>
               <div className="space-y-4">
                 {[
-                  'Dedicated pages for high-intent service categories',
-                  'North America SEO positioning across Canada and the United States',
-                  'Strong consultation and WhatsApp CTAs across the site',
-                  'Realistic case studies with detailed project pages',
+                  'Eight clearly defined top-level service offers',
+                  'Specialized sub-services organized inside each service page',
+                  'Direct scheduling and contact options without clutter',
+                  'Case studies with dedicated pages and consistent proof points',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle className="text-primary flex-shrink-0" />
@@ -147,9 +145,9 @@ const HomePage = () => {
               <div className="rounded-[2rem] bg-white p-5 shadow-xl">
                 <div className="rounded-[1.5rem] bg-slate-950 p-7 text-white">
                   <p className="text-sm uppercase tracking-[0.2em] text-primary">North America SEO map</p>
-                  <div className="mt-6 grid gap-3">
-                    {['Managed IT Services', 'Custom Software Development', 'Web Development SEO', 'Cloud Cost Optimization', 'Generative AI Automation'].map((item) => (
-                      <div key={item} className="rounded-2xl bg-white/10 px-5 py-4 font-semibold text-white">{item}</div>
+                  <div className="mt-6 grid grid-cols-2 gap-3">
+                    {serviceCatalog.map((service) => (
+                      <div key={service.slug} className="rounded-2xl bg-white/10 px-5 py-4 font-semibold text-white">{service.navName}</div>
                     ))}
                   </div>
                 </div>
@@ -163,31 +161,22 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="mb-16 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Case Studies</p>
-            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Project stories with believable details and their own pages.</h2>
+            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Project stories with believable details and consistent presentation.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Each case study now links to a dedicated page with client context, challenge, solution, timeline, stack, and measurable results.
+              Explore delivery examples across cloud, managed IT, software, mobile, web, and AI work without overwhelming the homepage.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredCaseStudies.map((caseStudy) => (
-              <TestimonialCard
-                key={caseStudy.slug}
-                slug={caseStudy.slug}
-                result={caseStudy.title}
-                company={caseStudy.company}
-                industry={caseStudy.industry}
-                summary={caseStudy.summary}
-                outcome={caseStudy.results[0]}
-              />
-            ))}
-          </div>
+          <CaseStudiesCarousel caseStudies={caseStudies} />
         </div>
       </section>
 
       <CTASection
         heading="Ready to turn your website into a serious growth channel?"
         description="Tell us your service priority and we'll recommend the highest-impact path across IT, software, cloud, web, mobile, or AI."
-        buttonText="Get a Free Consultation"
+        buttonText="Schedule a Consultation"
+        buttonLink={CALENDAR_URL}
+        secondaryText="Contact Us"
+        secondaryLink="/contact"
       />
 
       <Footer />
