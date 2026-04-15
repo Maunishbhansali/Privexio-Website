@@ -8,7 +8,10 @@ import { serviceCatalog } from '@/data/serviceCatalog';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [activeServicePath, setActiveServicePath] = useState(serviceCatalog[0]?.path ?? '/msp');
   const { pathname } = useLocation();
+  const leftColumnServices = serviceCatalog.filter((_, index) => index % 2 === 0);
+  const rightColumnServices = serviceCatalog.filter((_, index) => index % 2 === 1);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -42,19 +45,51 @@ const Header = () => {
               Services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
             {isServicesOpen && (
-              <div id="desktop-services-menu" className="absolute left-0 top-full grid w-[44rem] grid-cols-2 gap-2 rounded-2xl border border-border bg-card p-4 shadow-2xl">
-                {serviceCatalog.map((service) => {
-                  const Icon = service.icon;
-                  return (
-                    <Link key={service.path} to={service.path} className="flex gap-3 rounded-xl px-3 py-3 text-sm text-foreground hover:bg-primary/10 hover:text-primary">
-                      <Icon className="mt-0.5 h-5 w-5 flex-shrink-0" />
-                      <span>
-                        <span className="block font-semibold">{service.navName}</span>
-                        <span className="mt-1 block text-xs text-muted-foreground">{service.categories.length} specialized solution areas</span>
-                      </span>
-                    </Link>
-                  );
-                })}
+              <div id="desktop-services-menu" className="absolute left-0 top-full w-[48rem] rounded-[1.75rem] border border-border bg-card p-4 shadow-2xl">
+                <div className="grid grid-cols-2 gap-4">
+                  {[leftColumnServices, rightColumnServices].map((columnServices, columnIndex) => (
+                    <div key={columnIndex} className="space-y-2">
+                      {columnServices.map((service) => {
+                    const Icon = service.icon;
+                    const isActive = activeServicePath === service.path;
+
+                    return (
+                      <div
+                        key={service.path}
+                        onMouseEnter={() => setActiveServicePath(service.path)}
+                        onFocus={() => setActiveServicePath(service.path)}
+                        className={`rounded-2xl px-4 py-4 transition-all duration-200 ${
+                          isActive ? 'bg-primary/10' : 'hover:bg-slate-50'
+                        }`}
+                      >
+                        <Link to={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
+                          <Icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${isActive ? 'text-primary' : ''}`} />
+                          <div className="min-w-0">
+                            <span className="block font-semibold leading-snug">{service.navName}</span>
+                          </div>
+                        </Link>
+
+                        {isActive && (
+                          <div className="mt-4 rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
+                            <div className="grid gap-2">
+                              {service.categories.map((category) => (
+                                <Link
+                                  key={category.slug}
+                                  to={`${service.path}/${category.slug}`}
+                                  className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50 hover:text-primary"
+                                >
+                                  {category.title}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                      })}
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>

@@ -6,13 +6,13 @@ export const serviceCatalog = [
     path: '/msp',
     navName: 'Managed IT Services',
     title: 'Managed IT Services',
-    eyebrow: 'North America managed IT support',
+    eyebrow: 'Managed IT support and operational resilience',
     icon: Monitor,
     description: 'Comprehensive IT infrastructure management, 24/7 monitoring, support operations, and technology stewardship for growing organizations.',
     hero: 'Stabilize your environment with responsive support, stronger visibility, and a managed IT partner that helps your team stay productive.',
     primaryCta: 'Schedule an IT Assessment',
     secondaryCta: 'Email the Privexio Team',
-    keywords: 'managed IT services North America, MSP Canada, outsourced IT support, IT operations',
+    keywords: 'managed IT services, outsourced IT support, co-managed IT, IT operations, business continuity',
     stats: ['24/7 monitoring', 'Helpdesk coverage', 'Asset visibility', 'Business continuity'],
     categories: [
       {
@@ -42,6 +42,15 @@ export const serviceCatalog = [
         outcomes: ['Improved access control', 'Less admin overhead', 'Stronger operational consistency'],
         caseStudySlug: 'healthcare-security-managed-it',
       },
+      {
+        slug: 'co-managed-it-services',
+        title: 'Co-Managed IT Services',
+        trend: 'Internal IT teams increasingly need extra capacity without giving up control of the environment.',
+        intro: 'We work alongside in-house IT teams to extend coverage, close skill gaps, and provide escalation support for projects, security, and day-to-day operations.',
+        deliverables: ['Escalation support', 'Shared service desk coverage', 'Project delivery support', 'Operational documentation'],
+        outcomes: ['Reduced team burnout', 'Broader technical coverage', 'Stronger delivery capacity'],
+        caseStudySlug: 'professional-services-helpdesk-modernization',
+      },
     ],
   },
   {
@@ -55,7 +64,7 @@ export const serviceCatalog = [
     hero: 'Reduce risk with practical cybersecurity improvements across endpoints, identities, policies, and incident readiness.',
     primaryCta: 'Schedule a Security Review',
     secondaryCta: 'Email the Security Team',
-    keywords: 'cybersecurity services North America, managed detection, security assessments, zero trust consulting',
+    keywords: 'cybersecurity services, managed detection, managed edr, security assessments, zero trust consulting',
     stats: ['Threat detection', 'Security reviews', 'Identity hardening', 'Compliance readiness'],
     categories: [
       {
@@ -85,6 +94,15 @@ export const serviceCatalog = [
         outcomes: ['Improved access control', 'Lower policy drift', 'Better audit preparation'],
         caseStudySlug: 'healthcare-security-managed-it',
       },
+      {
+        slug: 'managed-edr-response',
+        title: 'Managed EDR & Response',
+        trend: 'Security leaders want always-on endpoint visibility and guided response without building a full SOC internally.',
+        intro: 'We deploy, tune, and operate endpoint detection and response workflows that improve threat visibility and speed up investigation and containment.',
+        deliverables: ['Managed EDR rollout', 'Alert triage', 'Threat hunting support', 'Response playbooks'],
+        outcomes: ['Faster containment', 'Better endpoint visibility', 'Higher confidence during incidents'],
+        caseStudySlug: 'healthcare-security-managed-it',
+      },
     ],
   },
   {
@@ -98,7 +116,7 @@ export const serviceCatalog = [
     hero: 'Move faster with cloud environments designed for resilience, visibility, cost control, and future growth.',
     primaryCta: 'Schedule a Cloud Review',
     secondaryCta: 'Email the Cloud Team',
-    keywords: 'cloud migration North America, AWS Azure consulting, cloud cost optimization, DevOps Canada',
+    keywords: 'cloud migration, AWS consulting, Azure consulting, cloud cost optimization, FinOps, DevOps',
     stats: ['Migration planning', 'Cost control', 'DevOps pipelines', 'Resilient architecture'],
     categories: [
       {
@@ -141,7 +159,7 @@ export const serviceCatalog = [
     hero: 'Replace disconnected systems and manual work with software tailored to how your business actually operates.',
     primaryCta: 'Schedule a Discovery Call',
     secondaryCta: 'Email the Product Team',
-    keywords: 'custom software development North America, SaaS development, enterprise software Canada, workflow automation',
+    keywords: 'custom software development, SaaS development, enterprise software, workflow automation, product engineering',
     stats: ['Agile delivery', 'Workflow automation', 'API-first builds', 'Scalable architecture'],
     categories: [
       {
@@ -184,7 +202,7 @@ export const serviceCatalog = [
     hero: 'Turn your website into a stronger growth asset with modern UX, technical SEO, and clearer conversion pathways.',
     primaryCta: 'Plan My Website Refresh',
     secondaryCta: 'Email the Web Team',
-    keywords: 'web development North America, SEO website design, technical SEO, conversion website agency',
+    keywords: 'web development, SEO website design, technical SEO, conversion website agency, lead generation websites',
     stats: ['SEO architecture', 'Conversion design', 'Core Web Vitals', 'Lead generation'],
     categories: [
       {
@@ -227,7 +245,7 @@ export const serviceCatalog = [
     hero: 'Adopt AI where it creates measurable value across service delivery, internal workflows, reporting, and customer operations.',
     primaryCta: 'Schedule an AI Strategy Session',
     secondaryCta: 'Email the AI Team',
-    keywords: 'AI consulting North America, workflow automation, generative AI development, business process optimization',
+    keywords: 'AI consulting, workflow automation, generative AI development, business process optimization, AI agent development',
     stats: ['AI automation', 'Business workflows', 'Analytics', 'Operational efficiency'],
     categories: [
       {
@@ -257,6 +275,15 @@ export const serviceCatalog = [
         outcomes: ['Faster support', 'Lower repetitive ticket volume', 'Better self-service'],
         caseStudySlug: 'ai-support-automation',
       },
+      {
+        slug: 'ai-agent-development',
+        title: 'AI Agent Development',
+        trend: 'Organizations are moving beyond prototypes and want autonomous agents tied to real business workflows.',
+        intro: 'We design and implement AI agents that coordinate actions, retrieve context, trigger systems, and support operations with controlled human oversight.',
+        deliverables: ['Agent workflow design', 'Tool integrations', 'Guardrails and approvals', 'Observability and analytics'],
+        outcomes: ['More scalable automation', 'Faster operational execution', 'Better orchestration across systems'],
+        caseStudySlug: 'ai-support-automation',
+      },
     ],
   },
   {
@@ -270,7 +297,7 @@ export const serviceCatalog = [
     hero: 'Launch mobile experiences that feel polished, work reliably, and connect directly to the systems running your business.',
     primaryCta: 'Schedule an App Planning Call',
     secondaryCta: 'Email the Mobile Team',
-    keywords: 'mobile app development North America, iOS Android app developers, React Native development Canada',
+    keywords: 'mobile app development, iOS app developers, Android app developers, React Native development, secure mobile apps',
     stats: ['iOS and Android', 'Cross-platform delivery', 'Secure workflows', 'Launch readiness'],
     categories: [
       {
@@ -313,7 +340,7 @@ export const serviceCatalog = [
     hero: 'Fill gaps in planning and leadership with practical consulting support across architecture, budgets, vendors, and modernization priorities.',
     primaryCta: 'Schedule a Consultation',
     secondaryCta: 'Email the Consulting Team',
-    keywords: 'IT consulting North America, digital transformation consulting, technology roadmap, vCIO advisory',
+    keywords: 'IT consulting, digital transformation consulting, technology roadmap, vCIO advisory, business intelligence consulting',
     stats: ['Roadmap planning', 'Executive guidance', 'Transformation strategy', 'Vendor alignment'],
     categories: [
       {

@@ -135,6 +135,15 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  .partner-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 6rem;
+    animation: partnerMarquee 160s linear infinite;
+  }
+  .partner-logo-mark {
+    flex: 0 0 auto;
+  }
 }
 
 @keyframes softReveal {
@@ -154,5 +163,14 @@
   }
   50% {
     transform: translateY(-12px);
+  }
+}
+
+@keyframes partnerMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
   }
 }

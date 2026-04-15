@@ -16,7 +16,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
 
   usePageMeta(
     category && service ? `${category.title} | ${service.title}` : 'Service Category',
-    category ? `${category.title} by Privexio for North American businesses. ${category.intro}` : undefined
+    category ? `${category.title} by Privexio for modern business teams. ${category.intro}` : undefined
   );
 
   if (!service || !category) {

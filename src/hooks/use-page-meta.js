@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE_URL = 'https://privexio.com';
 const DEFAULT_TITLE = 'Privexio | Managed IT, Cloud, Software, Web, Mobile, and AI Services';
-const DEFAULT_DESCRIPTION = 'Privexio provides managed IT, cloud, software development, web, mobile, and AI services for businesses across Canada and North America.';
+const DEFAULT_DESCRIPTION = 'Privexio provides managed IT, cloud, software development, web, mobile, cybersecurity, and AI services for modern businesses.';
 
 function upsertMeta(selector, attributes) {
   let tag = document.head.querySelector(selector);

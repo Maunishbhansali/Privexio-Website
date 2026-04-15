@@ -9,10 +9,33 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { usePageMeta } from '@/hooks/use-page-meta';
 import { useToast } from '@/components/ui/use-toast';
-import { CalendarDays, MapPin, Phone, Mail } from 'lucide-react';
+import { Briefcase, CalendarDays, Headphones, Mail, MapPin, Phone, Presentation } from 'lucide-react';
 import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@outlook.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@privexio.com';
+
+const inquiryCards = [
+  {
+    title: 'General Inquiry',
+    description: 'Questions about Privexio, service fit, partnerships, or how we work.',
+    icon: Mail,
+  },
+  {
+    title: 'Consultation Inquiry',
+    description: 'Book a strategy conversation to review priorities, systems, and next steps.',
+    icon: Presentation,
+  },
+  {
+    title: 'Project Inquiry',
+    description: 'Share implementation goals for software, cloud, security, AI, or web delivery.',
+    icon: Briefcase,
+  },
+  {
+    title: 'Technical Support',
+    description: 'Reach out for support-related questions, response expectations, or escalation guidance.',
+    icon: Headphones,
+  },
+];
 
 const ContactPage = () => {
   usePageMeta(
@@ -78,11 +101,29 @@ const ContactPage = () => {
         <section className="page-hero text-center">
           <div className="page-container-narrow">
             <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">Contact Us</h1>
-            <p className="mx-auto max-w-2xl text-xl text-slate-300">Get in touch with our tech experts to discuss your project requirements.</p>
+            <p className="mx-auto max-w-2xl text-xl text-slate-300">Connect with our team for consultations, project planning, technical support questions, or general business inquiries.</p>
           </div>
         </section>
 
         <section className="page-section page-container">
+          <div className="mb-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {inquiryCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div key={card.title} className="rounded-[1.5rem] border border-border bg-card p-6 shadow-sm">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-lg font-bold text-foreground">{card.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{card.description}</p>
+                  <a href={MAILTO_URL} className="mt-5 inline-flex text-sm font-semibold text-primary hover:text-primary/80">
+                    {CONTACT_EMAIL}
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+
           <div className="flex flex-col lg:flex-row gap-12">
             
             {/* Form */}
@@ -136,7 +177,7 @@ const ContactPage = () => {
             <div className="lg:w-1/3 space-y-8">
               <div>
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                <p className="text-muted-foreground mb-8">Prefer to move faster? Schedule a consultation or email us directly during business hours.</p>
+                <p className="text-muted-foreground mb-8">Prefer to move faster? Schedule a consultation or email us directly during business hours and we&apos;ll route your inquiry to the right team.</p>
                 <div className="flex flex-wrap gap-3">
                   <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
                     <CalendarDays className="mr-2 h-4 w-4" />

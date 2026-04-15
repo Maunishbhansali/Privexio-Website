@@ -4,8 +4,11 @@ import { CalendarDays, CheckCircle, Mail, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
+import MetricsSection from '@/components/MetricsSection';
+import PartnerLogos from '@/components/PartnerLogos';
 import ServiceCard from '@/components/ServiceCard';
 import CTASection from '@/components/CTASection';
+import TrustBar from '@/components/TrustBar';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { caseStudies } from '@/data/caseStudies';
@@ -101,6 +104,8 @@ const HomePage = () => {
         </div>
       </section>
 
+      <TrustBar />
+
       <section className="page-section bg-background">
         <div className="page-container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
@@ -118,6 +123,8 @@ const HomePage = () => {
         </div>
       </section>
 
+      <MetricsSection />
+
       <section className="page-section bg-secondary/5">
         <div className="page-container">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
@@ -125,7 +132,7 @@ const HomePage = () => {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Why choose Privexio</p>
               <h2 className="mt-3 mb-6 text-3xl font-bold text-foreground md:text-4xl">Practical strategy, polished delivery, and support after launch.</h2>
               <p className="mb-8 text-lg text-muted-foreground">
-                Inspired by modern SaaS motion patterns like Circula&apos;s clean reveal cards and dashboard-style storytelling, the site now uses lighter, more useful animations where they support clarity instead of distraction.
+                We combine managed support, product-minded execution, and clear communication so teams can move from planning to delivery without losing momentum.
               </p>
               <div className="space-y-4">
                 {[
@@ -156,6 +163,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <PartnerLogos />
 
       <section id="case-studies" className="page-section scroll-mt-24 bg-background relative">
         <div className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none" />

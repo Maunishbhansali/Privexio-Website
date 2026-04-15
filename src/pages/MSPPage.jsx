@@ -16,7 +16,7 @@ const MSPPage = () => {
       <main className="flex-grow">
         <ServiceHub service={service} />
       </main>
-      <CTASection heading="Secure Your IT Infrastructure" description="Get a practical IT, cybersecurity, and support roadmap for your North American team." buttonText="Schedule an IT Assessment" secondaryText="Contact Us" secondaryLink="/contact" />
+      <CTASection heading="Secure Your IT Infrastructure" description="Get a practical IT, cybersecurity, and support roadmap tailored to your team, systems, and growth priorities." buttonText="Schedule an IT Assessment" secondaryText="Contact Us" secondaryLink="/contact" />
       <Footer />
     </div>
   );

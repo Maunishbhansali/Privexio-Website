@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import ScrollToTop from '@/components/ScrollToTop';
+import FloatingSupportCTA from '@/components/FloatingSupportCTA';
 
 import HomePage from '@/pages/HomePage';
 import MSPPage from '@/pages/MSPPage';
@@ -60,6 +61,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <FloatingSupportCTA />
       <Toaster />
     </Router>
   );
