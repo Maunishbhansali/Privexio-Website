@@ -19,13 +19,13 @@ const HomePage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
 
       <section className="relative overflow-hidden bg-white pt-28 pb-24 md:pt-36 md:pb-32">
         <div className="absolute right-0 top-24 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block" />
         <div className="absolute right-16 top-40 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block" />
-        <div className="container relative z-10 mx-auto grid items-center gap-14 px-4 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">North America technology partner</p>
             <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] text-slate-950 md:text-7xl">
@@ -101,8 +101,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-4">
+      <section className="page-section bg-background">
+        <div className="page-container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Services built for search and sales</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Eight focused service lines, each with deeper solution areas inside.</h2>
@@ -118,8 +118,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-secondary/5">
-        <div className="container mx-auto px-4">
+      <section className="page-section bg-secondary/5">
+        <div className="page-container">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
             <div className="lg:w-1/2">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Why choose Privexio</p>
@@ -157,8 +157,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="case-studies" className="section-padding scroll-mt-24 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="case-studies" className="page-section scroll-mt-24 bg-background">
+        <div className="page-container">
           <div className="mb-16 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Case Studies</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Project stories with believable details and consistent presentation.</h2>

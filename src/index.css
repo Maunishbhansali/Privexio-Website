@@ -1,3 +1,4 @@
+@import '@/styles/theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,6 +91,36 @@
   }
   .section-padding {
     @apply py-16 md:py-24;
+  }
+  .page-shell {
+    @apply theme-page;
+  }
+  .page-container {
+    @apply theme-container;
+  }
+  .page-container-narrow {
+    @apply theme-container-narrow;
+  }
+  .page-section {
+    @apply theme-section;
+  }
+  .page-section-lg {
+    @apply theme-section-lg;
+  }
+  .page-hero {
+    @apply theme-hero;
+  }
+  .page-hero-lg {
+    @apply theme-hero-lg;
+  }
+  .page-surface {
+    @apply theme-surface;
+  }
+  .page-panel {
+    @apply theme-panel;
+  }
+  .page-panel-strong {
+    @apply theme-panel-strong;
   }
   .soft-reveal {
     animation: softReveal 0.7s ease-out both;

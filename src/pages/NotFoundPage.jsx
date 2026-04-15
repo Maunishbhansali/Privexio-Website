@@ -10,11 +10,11 @@ const NotFoundPage = () => {
   usePageMeta('Page Not Found', 'The page you are looking for does not exist or may have moved.');
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
-        <section className="bg-slate-950 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-4xl text-center">
+        <section className="page-hero text-white">
+          <div className="page-container-narrow text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">404 error</p>
             <h1 className="mt-4 text-4xl font-bold md:text-6xl">We couldn&apos;t find that page.</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">

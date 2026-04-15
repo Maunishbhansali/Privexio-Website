@@ -24,11 +24,11 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
-        <section className="bg-slate-950 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-5xl">
+        <section className="page-hero text-white">
+          <div className="page-container-narrow">
             <Link to={service.path} className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               Back to {service.title}
             </Link>
@@ -43,8 +43,8 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
           </div>
         </section>
 
-        <section className="section-padding">
-          <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr]">
+        <section className="page-section">
+          <div className="page-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <aside className="rounded-[1.75rem] border border-border bg-card p-7 shadow-sm">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <TrendingUp className="h-6 w-6" />
@@ -77,8 +77,8 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
         </section>
 
         {relatedCaseStudy && (
-          <section className="section-padding bg-slate-50">
-            <div className="container mx-auto px-4">
+          <section className="page-section bg-slate-50">
+            <div className="page-container">
               <div className="rounded-[2rem] bg-slate-950 p-8 text-white md:p-12">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Related case study</p>
                 <h2 className="mt-3 max-w-4xl text-3xl font-bold text-white md:text-4xl">{relatedCaseStudy.title}</h2>

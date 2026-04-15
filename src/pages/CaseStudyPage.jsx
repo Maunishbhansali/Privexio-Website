@@ -18,11 +18,11 @@ const CaseStudyPage = ({ slug }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
-        <section className="bg-slate-950 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-5xl">
+        <section className="page-hero text-white">
+          <div className="page-container-narrow">
             <Link to="/case-studies" className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to case studies
@@ -47,8 +47,8 @@ const CaseStudyPage = ({ slug }) => {
           </div>
         </section>
 
-        <section className="section-padding">
-          <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.8fr_1.2fr]">
+        <section className="page-section">
+          <div className="page-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <aside className="space-y-4">
               <div className="rounded-[1.5rem] border border-border bg-card p-6">
                 <MapPin className="mb-3 h-6 w-6 text-primary" />

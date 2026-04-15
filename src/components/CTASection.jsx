@@ -16,8 +16,8 @@ const CTASection = ({
   const isSecondaryExternal = secondaryLink.startsWith('http') || secondaryLink.startsWith('mailto:');
 
   return (
-    <section className="section-padding bg-primary text-center text-primary-foreground">
-      <div className="container mx-auto max-w-4xl px-4">
+    <section className="page-section bg-primary text-center text-primary-foreground">
+      <div className="page-container-narrow">
         <h2 className="mb-6 text-3xl font-bold text-primary-foreground md:text-5xl">{heading}</h2>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
           {description}

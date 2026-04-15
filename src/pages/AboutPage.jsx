@@ -11,15 +11,17 @@ const AboutPage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow">
-        <section className="bg-slate-900 py-24 text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Privexio</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">Innovating technology solutions for modern enterprises since 2015.</p>
+        <section className="page-hero text-center">
+          <div className="page-container-narrow">
+            <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">About Privexio</h1>
+            <p className="mx-auto max-w-2xl text-xl text-slate-300">Innovating technology solutions for modern enterprises since 2015.</p>
+          </div>
         </section>
 
-        <section className="section-padding container mx-auto px-4 max-w-4xl">
+        <section className="page-section page-container-narrow">
           <div className="mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Story</h2>
             <p className="text-lg text-muted-foreground mb-6">

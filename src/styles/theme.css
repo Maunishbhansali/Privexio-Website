@@ -1,0 +1,121 @@
+@layer base {
+  :root {
+    --theme-bg: hsl(var(--background));
+    --theme-fg: hsl(var(--foreground));
+    --theme-card: hsl(var(--card));
+    --theme-card-fg: hsl(var(--card-foreground));
+    --theme-muted: hsl(var(--muted));
+    --theme-muted-fg: hsl(var(--muted-foreground));
+    --theme-primary: hsl(var(--primary));
+    --theme-primary-fg: hsl(var(--primary-foreground));
+    --theme-border: hsl(var(--border));
+    --theme-panel: #f8fbfc;
+    --theme-panel-strong: #eef5f7;
+    --theme-hero: #020817;
+    --theme-hero-fg: #ffffff;
+    --theme-hero-muted: #cbd5e1;
+    --theme-shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+    --theme-shadow-card: 0 10px 28px rgba(15, 23, 42, 0.06);
+    --page-max-width: 1200px;
+    --content-max-width: 960px;
+    --page-padding-x: 1rem;
+    --section-padding-y: 4rem;
+    --section-padding-y-lg: 6rem;
+    --hero-padding-y: 6rem;
+    --hero-padding-y-lg: 8rem;
+    --card-radius: 1.5rem;
+    --panel-radius: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --page-padding-x: 1.5rem;
+      --section-padding-y: 5rem;
+      --hero-padding-y: 7rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --page-padding-x: 2rem;
+      --section-padding-y-lg: 6.5rem;
+      --hero-padding-y-lg: 8.5rem;
+    }
+  }
+}
+
+@layer components {
+  .theme-page {
+    background: var(--theme-bg);
+    color: var(--theme-fg);
+  }
+
+  .theme-container {
+    width: 100%;
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    padding-inline: var(--page-padding-x);
+  }
+
+  .theme-container-narrow {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--page-padding-x);
+  }
+
+  .theme-section {
+    padding-block: var(--section-padding-y);
+  }
+
+  .theme-section-lg {
+    padding-block: var(--section-padding-y-lg);
+  }
+
+  .theme-hero {
+    background: var(--theme-hero);
+    color: var(--theme-hero-fg);
+    padding-block: var(--hero-padding-y);
+  }
+
+  .theme-hero-lg {
+    padding-block: var(--hero-padding-y-lg);
+  }
+
+  .theme-hero-muted {
+    color: var(--theme-hero-muted);
+  }
+
+  .theme-surface {
+    background: var(--theme-card);
+    color: var(--theme-card-fg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--theme-shadow-card);
+  }
+
+  .theme-panel {
+    background: var(--theme-panel);
+    border-radius: var(--panel-radius);
+  }
+
+  .theme-panel-strong {
+    background: var(--theme-panel-strong);
+    border-radius: calc(var(--panel-radius) - 0.25rem);
+  }
+
+  .theme-stack-sm {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .theme-stack-md {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .theme-stack-lg {
+    display: grid;
+    gap: 2rem;
+  }
+}

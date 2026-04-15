@@ -24,7 +24,7 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-slate-800 bg-slate-900 py-12 text-slate-200">
-      <div className="container mx-auto px-4">
+      <div className="page-container">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">

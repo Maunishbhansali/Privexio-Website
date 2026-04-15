@@ -19,10 +19,10 @@ const ServiceHub = ({ service }) => {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-slate-950 px-4 py-24 md:py-32">
+      <section className="page-hero page-hero-lg relative overflow-hidden">
         <div className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/25 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
-        <div className="container relative z-10 mx-auto grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="page-container relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-primary">{service.eyebrow}</p>
             <h1 className="max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">{service.title}</h1>
@@ -71,8 +71,8 @@ const ServiceHub = ({ service }) => {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-4">
+      <section className="page-section bg-background">
+        <div className="page-container">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Specialized solution areas</p>
             <h2 className="mt-3 text-3xl font-bold md:text-5xl">Explore the focused capabilities inside this service line.</h2>

@@ -72,15 +72,17 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <div className="flex-grow">
-        <section className="bg-slate-900 py-24 text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">Get in touch with our tech experts to discuss your project requirements.</p>
+        <section className="page-hero text-center">
+          <div className="page-container-narrow">
+            <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">Contact Us</h1>
+            <p className="mx-auto max-w-2xl text-xl text-slate-300">Get in touch with our tech experts to discuss your project requirements.</p>
+          </div>
         </section>
 
-        <section className="section-padding container mx-auto px-4 max-w-6xl">
+        <section className="page-section page-container">
           <div className="flex flex-col lg:flex-row gap-12">
             
             {/* Form */}

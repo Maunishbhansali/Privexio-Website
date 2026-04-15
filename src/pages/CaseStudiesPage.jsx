@@ -14,11 +14,11 @@ const CaseStudiesPage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        <section className="bg-slate-950 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-5xl">
+        <section className="page-hero text-white">
+          <div className="page-container-narrow">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Case studies</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">Proof of execution across real business challenges.</h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">
@@ -27,8 +27,8 @@ const CaseStudiesPage = () => {
           </div>
         </section>
 
-        <section className="section-padding bg-background">
-          <div className="container mx-auto px-4">
+        <section className="page-section bg-background">
+          <div className="page-container">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
               {caseStudies.map((caseStudy) => (
                 <TestimonialCard
