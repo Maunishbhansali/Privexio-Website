@@ -32,7 +32,7 @@ const Footer = () => {
               <span className="text-2xl font-bold tracking-tight text-white">Privexio</span>
             </Link>
             <p className="text-sm text-slate-400">
-              Managed IT, software, web, mobile, cloud, AI, and cybersecurity services for ambitious North American businesses.
+              Managed IT, software, web, mobile, cloud, AI, and cybersecurity services for ambitious growth-focused businesses.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-primary/40 px-4 py-2 text-sm font-bold text-primary">

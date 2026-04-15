@@ -14,8 +14,8 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 
 const HomePage = () => {
   usePageMeta(
-    'Managed IT, Software, Cloud, Web, Mobile and AI Services in North America',
-    'Privexio provides managed IT, cybersecurity, software development, web development, mobile apps, cloud solutions, and AI automation for businesses across Canada and North America.'
+    'Managed IT, Software, Cloud, Web, Mobile and AI Services for Growth-Focused Businesses',
+    'Privexio provides managed IT, cybersecurity, software development, web development, mobile apps, cloud solutions, and AI automation for businesses growing across competitive markets.'
   );
 
   return (
@@ -27,12 +27,12 @@ const HomePage = () => {
         <div className="absolute right-16 top-40 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block" />
         <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">North America technology partner</p>
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Technology partner for growth-focused businesses</p>
             <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] text-slate-950 md:text-7xl">
               Build, secure, and scale your business with Privexio.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Managed IT, cybersecurity, custom software, web and SEO solutions, mobile apps, cloud modernization, AI automation, and digital transformation support for growing teams across Canada and the United States.
+              Managed IT, cybersecurity, custom software, web and SEO solutions, mobile apps, cloud modernization, AI automation, and digital transformation support for teams expanding across competitive markets.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full lg:w-1/2">
               <div className="rounded-[2rem] bg-white p-5 shadow-xl">
                 <div className="rounded-[1.5rem] bg-slate-950 p-7 text-white">
-                  <p className="text-sm uppercase tracking-[0.2em] text-primary">North America SEO map</p>
+                  <p className="text-sm uppercase tracking-[0.2em] text-primary">Multi-market SEO map</p>
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     {serviceCatalog.map((service) => (
                       <div key={service.slug} className="rounded-2xl bg-white/10 px-5 py-4 font-semibold text-white">{service.navName}</div>
@@ -157,13 +157,14 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="case-studies" className="page-section scroll-mt-24 bg-background">
-        <div className="page-container">
+      <section id="case-studies" className="page-section scroll-mt-24 bg-background relative">
+        <div className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+        <div className="page-container relative z-10">
           <div className="mb-16 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Case Studies</p>
-            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Project stories with believable details and consistent presentation.</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Explore delivery examples across cloud, managed IT, software, mobile, web, and AI work without overwhelming the homepage.
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary">Proven Results</p>
+            <h2 className="text-4xl font-extrabold text-slate-900 md:text-5xl leading-tight">Outcomes that matter.</h2>
+            <p className="mt-6 text-xl text-slate-600">
+              Explore how we&apos;ve helped organizations modernize infrastructure, launch new platforms, and secure their operations.
             </p>
           </div>
           <CaseStudiesCarousel caseStudies={caseStudies} />
