@@ -6,64 +6,89 @@ import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 30 },
   visible: (index) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: index * 0.08 },
+    transition: { duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
 const ServiceHub = ({ service }) => {
   const Icon = service.icon;
 
+  // Derive a background image based on service slug for visual richness
+  const getServiceImage = (slug) => {
+    if (slug.includes('cyber')) return '/images/tech_1.jpg';
+    if (slug.includes('cloud')) return '/images/tech_2.jpg';
+    if (slug.includes('software') || slug.includes('app') || slug.includes('web')) return '/images/abstract_1.jpg';
+    if (slug.includes('ai')) return '/images/abstract_2.jpg';
+    return '/images/business_1.jpg';
+  };
+
+  const bgImage = getServiceImage(service.slug);
+
   return (
     <>
-      <section className="relative overflow-hidden bg-slate-950 px-4 py-24 md:py-32">
-        <div className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/25 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
-        <div className="container relative z-10 mx-auto grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-primary">{service.eyebrow}</p>
-            <h1 className="max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">{service.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">{service.hero}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      <section className="relative overflow-hidden bg-slate-950 px-4 py-24 md:py-36">
+        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity">
+          <img src={bgImage} alt={service.title} className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40 z-0" />
+        
+        <div className="container relative z-10 mx-auto grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-bold tracking-widest uppercase text-primary mb-6">
+              {service.eyebrow}
+            </div>
+            <h1 className="max-w-4xl text-5xl font-extrabold leading-tight text-white md:text-7xl mb-6">{service.title}</h1>
+            <p className="max-w-2xl text-xl leading-relaxed text-slate-300">{service.hero}</p>
+            
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
-                <Button size="lg" className="w-full rounded-full px-8 py-6 text-base sm:w-auto">
-                  <CalendarDays className="mr-2 h-5 w-5" />
+                <Button size="lg" className="w-full rounded-full px-8 py-7 text-base font-bold shadow-lg sm:w-auto">
+                  <CalendarDays className="mr-3 h-5 w-5" />
                   {service.primaryCta}
                 </Button>
               </a>
               <a href={MAILTO_URL}>
-                <Button size="lg" variant="outline" className="w-full rounded-full border-white/40 bg-white/10 px-8 py-6 text-base text-white hover:bg-white hover:text-slate-950 sm:w-auto">
-                  <Mail className="mr-2 h-5 w-5" />
+                <Button size="lg" variant="outline" className="w-full rounded-full border-white/20 bg-white/5 backdrop-blur-sm px-8 py-7 text-base font-bold text-white hover:bg-white/10 hover:text-white sm:w-auto">
+                  <Mail className="mr-3 h-5 w-5" />
                   {service.secondaryCta}
                 </Button>
               </a>
             </div>
           </motion.div>
+          
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative"
           >
-            <div className="rounded-[1.5rem] bg-white p-6 text-slate-950">
-              <div className="mb-6 flex items-center justify-between">
+            <div className="dark-glass-panel rounded-[2rem] p-8 shadow-2xl">
+              <div className="mb-8 flex items-start justify-between border-b border-white/10 pb-6">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Service dashboard</p>
-                  <h2 className="mt-2 text-2xl font-bold">{service.navName}</h2>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-2">Service Overview</p>
+                  <h2 className="text-3xl font-bold text-white">{service.navName}</h2>
                 </div>
-                <div className="rounded-2xl bg-primary/10 p-4">
+                <div className="rounded-2xl bg-primary/20 p-4 border border-primary/30 shadow-inner">
                   <Icon className="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {service.stats.map((stat) => (
-                  <div key={stat} className="flex items-center justify-between rounded-2xl bg-slate-100 px-4 py-3">
-                    <span className="font-medium">{stat}</span>
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                  </div>
+              
+              <div className="grid gap-4 sm:grid-cols-2">
+                {service.stats.map((stat, i) => (
+                  <motion.div 
+                    key={stat} 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 + (i * 0.1) }}
+                    className="flex items-center gap-3 rounded-2xl bg-white/5 border border-white/5 px-5 py-4"
+                  >
+                    <CheckCircle className="h-5 w-5 text-primary shrink-0" />
+                    <span className="font-semibold text-slate-200">{stat}</span>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -71,33 +96,39 @@ const ServiceHub = ({ service }) => {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-slate-50 relative">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Specialized solution areas</p>
-            <h2 className="mt-3 text-3xl font-bold md:text-5xl">Explore the focused capabilities inside this service line.</h2>
-            <p className="mt-5 text-lg text-muted-foreground">{service.description}</p>
+          <div className="mx-auto mb-20 max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary mb-4">Solution Capabilities</p>
+            <h2 className="text-4xl font-extrabold md:text-5xl text-slate-900 leading-tight">Explore the focused capabilities inside this service line.</h2>
+            <p className="mt-6 text-xl text-slate-600 leading-relaxed">{service.description}</p>
           </div>
-          <div className="grid gap-7 lg:grid-cols-3">
+          
+          <div className="grid gap-8 lg:grid-cols-3">
             {service.categories.map((category, index) => (
               <motion.article
                 key={category.slug}
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={cardVariants}
-                className="group flex h-full flex-col rounded-[1.75rem] border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="group flex h-full flex-col rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <TrendingUp className="h-6 w-6" />
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-white">
+                  <TrendingUp className="h-7 w-7" />
                 </div>
-                <h3 className="text-2xl font-bold">{category.title}</h3>
-                <p className="mt-4 text-sm font-semibold text-primary">{category.trend}</p>
-                <p className="mt-4 flex-grow text-muted-foreground">{category.intro}</p>
-                <Link to={`${service.path}/${category.slug}`} className="mt-6 inline-flex items-center font-semibold text-primary">
-                  Explore this service area
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">{category.title}</h3>
+                
+                <div className="my-5 rounded-xl bg-slate-50 p-4 border border-slate-100">
+                  <p className="text-sm font-semibold text-primary">{category.trend}</p>
+                </div>
+                
+                <p className="mt-2 flex-grow text-slate-600 leading-relaxed">{category.intro}</p>
+                
+                <Link to={`${service.path}/${category.slug}`} className="mt-8 inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary group-hover:text-primary/80 transition-colors">
+                  View Full Details
+                  <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </motion.article>
             ))}

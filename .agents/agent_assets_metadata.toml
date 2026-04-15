@@ -1,0 +1,62 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "46xcrZFd3NLhEuIgnRZby"
+uri = "file://public/images/team_1.jpg"
+type = "image"
+title = "professional modern office technology team working together, high quality, corporate"
+
+[[outputs]]
+id = "lKrPXk13LUJb3F9EQMCLe"
+uri = "file://public/images/team_2.jpg"
+type = "image"
+title = "professional modern office technology team working together, high quality, corporate"
+
+[[outputs]]
+id = "69ynPhuNd-7VVe4E9uveB"
+uri = "file://public/images/team_3.jpg"
+type = "image"
+title = "professional modern office technology team working together, high quality, corporate"
+
+[[outputs]]
+id = "o8agW51tH0bjpcgofO_Ch"
+uri = "file://public/images/tech_1.jpg"
+type = "image"
+title = "server room data center cloud computing technology, high quality, dark aesthetic"
+
+[[outputs]]
+id = "nCOeH_DoJKPt05wV2gg0K"
+uri = "file://public/images/tech_2.jpg"
+type = "image"
+title = "server room data center cloud computing technology, high quality, dark aesthetic"
+
+[[outputs]]
+id = "Cc4oLmT6WQQse_g-umD9u"
+uri = "file://public/images/tech_3.jpg"
+type = "image"
+title = "server room data center cloud computing technology, high quality, dark aesthetic"
+
+[[outputs]]
+id = "ajNXcBqWqzMPj4lfyg-2B"
+uri = "file://public/images/business_1.jpg"
+type = "image"
+title = "business professionals handshake meeting boardroom, high quality"
+
+[[outputs]]
+id = "GVXQClXTnL5jUVC-ezhx5"
+uri = "file://public/images/business_2.jpg"
+type = "image"
+title = "business professionals handshake meeting boardroom, high quality"
+
+[[outputs]]
+id = "5dsp3dLZVL2IKiBC8U5w-"
+uri = "file://public/images/abstract_1.jpg"
+type = "image"
+title = "abstract modern technology background data network, high quality"
+
+[[outputs]]
+id = "ywCUsVaRFn6qDMFwueBwU"
+uri = "file://public/images/abstract_2.jpg"
+type = "image"
+title = "abstract modern technology background data network, high quality"
