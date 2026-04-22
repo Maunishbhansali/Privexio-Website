@@ -24,9 +24,9 @@ const HomePage = () => {
     <div className="page-shell min-h-screen flex flex-col">
       <Header />
 
-      <section className="relative overflow-hidden bg-white pt-28 pb-24 md:pt-36 md:pb-32">
-        <div className="absolute right-0 top-24 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block" />
-        <div className="absolute right-16 top-40 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block" />
+      <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-20 md:pb-32">
+        <div className="absolute right-0 top-12 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block" />
+        <div className="absolute right-16 top-28 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block" />
         <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Technology partner for growth-focused businesses</p>

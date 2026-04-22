@@ -16,7 +16,7 @@ const AnimatedMetric = ({ value, suffix, label, active }) => {
 
     let frameId;
     let startTimestamp;
-    const duration = 900;
+    const duration = 3000;
 
     const tick = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
