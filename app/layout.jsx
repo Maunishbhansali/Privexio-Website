@@ -29,10 +29,9 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/privexio-mark.svg?v=20260422', type: 'image/svg+xml' },
-      { url: '/brand/png/privexio-mark-white-bg-64x64.png?v=20260422', sizes: '64x64', type: 'image/png' },
+      { url: '/brand/png/privexio-mark-white-bg-64x64.webp?v=20260422', sizes: '64x64', type: 'image/webp' },
     ],
-    apple: [{ url: '/brand/png/privexio-mark-white-bg-256x256.png?v=20260422', sizes: '256x256', type: 'image/png' }],
+    apple: [{ url: '/brand/png/privexio-mark-white-bg-256x256.webp?v=20260422', sizes: '256x256', type: 'image/webp' }],
   },
   openGraph: {
     type: 'website',
@@ -41,13 +40,13 @@ export const metadata = {
     description: 'Privexio helps organizations modernize with managed IT, cybersecurity, software, web, mobile, cloud, and AI services.',
     url: '/',
     locale: 'en',
-    images: ['/privexio-logo.svg'],
+    images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Privexio | Enterprise Technology Services',
     description: 'Managed IT, cybersecurity, software, web, mobile, cloud, and AI services for modern business teams.',
-    images: ['/privexio-logo.svg'],
+    images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
   },
   other: {
     'format-detection': 'telephone=yes',
@@ -72,7 +71,7 @@ const structuredData = {
       '@id': `${siteUrl}/#organization`,
       name: 'Privexio',
       url: `${siteUrl}/`,
-      logo: `${siteUrl}/privexio-logo.svg`,
+      logo: `${siteUrl}/brand/png/privexio-logo-full-white-bg-1024w.webp`,
       email: 'maunish.bhansali@privexio.com',
       telephone: '+1-226-868-8363',
     },
@@ -83,7 +82,7 @@ const structuredData = {
       url: `${siteUrl}/`,
       telephone: '+1-226-868-8363',
       email: 'maunish.bhansali@privexio.com',
-      image: `${siteUrl}/privexio-logo.svg`,
+      image: `${siteUrl}/brand/png/privexio-logo-full-white-bg-1024w.webp`,
       description: 'Privexio provides managed IT, cybersecurity, cloud, software development, web, mobile, and AI services for modern businesses.',
       address: {
         '@type': 'PostalAddress',

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CalendarDays, ChevronDown, Layers, Mail, Menu, X } from 'lucide-react';
+import { CalendarDays, ChevronDown, Mail, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
@@ -23,7 +23,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="page-container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Layers className="h-8 w-8 text-primary" />
+          <img
+            src="/brand/png/privexio-mark-white-bg-64x64.webp"
+            alt=""
+            width="32"
+            height="32"
+            className="h-8 w-8 rounded-sm"
+          />
           <span className="text-2xl font-bold tracking-tight text-primary">Privexio</span>
         </Link>
 

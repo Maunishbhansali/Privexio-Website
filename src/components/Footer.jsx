@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { CalendarDays, Facebook, Layers, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { CalendarDays, Facebook, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
@@ -28,7 +28,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Layers className="h-8 w-8 text-primary" />
+              <img
+                src="/brand/png/privexio-mark-white-bg-64x64.webp"
+                alt=""
+                width="32"
+                height="32"
+                className="h-8 w-8 rounded-sm"
+              />
               <span className="text-2xl font-bold tracking-tight text-white">Privexio</span>
             </Link>
             <p className="text-sm text-slate-400">

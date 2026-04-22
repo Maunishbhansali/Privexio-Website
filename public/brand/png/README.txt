@@ -1,6 +1,6 @@
-Privexio PNG Logo Pack
+Privexio WebP Logo Pack
 
-Included PNG exports:
+Included WebP exports:
 - Full horizontal logo: 512w, 1024w, 2048w
 - Standalone icon/mark: 64x64, 128x128, 256x256, 512x512, 1024x1024
 - Transparent, white-background, dark-background, and teal variants

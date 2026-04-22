@@ -1,46 +1,35 @@
 import React from 'react';
-import {
-  siAtlassian,
-  siCisco,
-  siCloudflare,
-  siDatadog,
-  siDell,
-  siFortinet,
-  siGooglecloud,
-  siJunipernetworks,
-  siOkta,
-  siPaloaltonetworks,
-  siSplunk,
-  siVeeam,
-  siVmware,
-  siZendesk,
-} from 'simple-icons';
 
 const partnerMarks = [
-  siGooglecloud,
-  siCisco,
-  siCloudflare,
-  siOkta,
-  siVmware,
-  siFortinet,
-  siPaloaltonetworks,
-  siJunipernetworks,
-  siDell,
-  siDatadog,
-  siSplunk,
-  siVeeam,
-  siZendesk,
-  siAtlassian,
+  { slug: 'googlecloud', title: 'Google Cloud' },
+  { slug: 'cisco', title: 'Cisco' },
+  { slug: 'cloudflare', title: 'Cloudflare' },
+  { slug: 'okta', title: 'Okta' },
+  { slug: 'vmware', title: 'VMware' },
+  { slug: 'fortinet', title: 'Fortinet' },
+  { slug: 'paloaltonetworks', title: 'Palo Alto Networks' },
+  { slug: 'junipernetworks', title: 'Juniper Networks' },
+  { slug: 'dell', title: 'Dell' },
+  { slug: 'datadog', title: 'Datadog' },
+  { slug: 'splunk', title: 'Splunk' },
+  { slug: 'veeam', title: 'Veeam' },
+  { slug: 'zendesk', title: 'Zendesk' },
+  { slug: 'atlassian', title: 'Atlassian' },
 ];
 
 const marqueeLogos = [...partnerMarks, ...partnerMarks];
 
-const BrandMark = ({ icon, compact = false }) => (
+const BrandMark = ({ partner, compact = false }) => (
   <div className={`partner-logo-mark flex items-center justify-center text-slate-800/85 ${compact ? 'h-14' : 'h-12'}`}>
-    <svg viewBox="0 0 24 24" className={`${compact ? 'h-7 w-7' : 'h-7 w-7'} fill-current`} aria-hidden="true">
-      <path d={icon.path} />
-    </svg>
-    <span className={`${compact ? 'ml-3 text-lg' : 'ml-2 text-[1.05rem]'} font-semibold tracking-tight text-slate-800/90`}>{icon.title}</span>
+    <img
+      src={`/brand/partners/${partner.slug}.webp`}
+      alt=""
+      width="28"
+      height="28"
+      className={`${compact ? 'h-7 w-7' : 'h-7 w-7'} object-contain`}
+      loading="lazy"
+    />
+    <span className={`${compact ? 'ml-3 text-lg' : 'ml-2 text-[1.05rem]'} font-semibold tracking-tight text-slate-800/90`}>{partner.title}</span>
   </div>
 );
 
@@ -64,7 +53,7 @@ const PartnerLogos = ({ compact = false }) => {
 
           <div className="partner-marquee-track items-center text-slate-800/90">
             {marqueeLogos.map((partner, index) => (
-              <BrandMark key={`${partner.slug}-${index}`} icon={partner} compact={compact} />
+              <BrandMark key={`${partner.slug}-${index}`} partner={partner} compact={compact} />
             ))}
           </div>
         </div>
