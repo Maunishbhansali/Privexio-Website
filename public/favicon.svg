@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0f172a" />
-  <path d="M20 18h15c8 0 13 4.5 13 11.5S43 41 35 41h-7v9H20V18zm8 7v9h7c3.4 0 5.2-1.6 5.2-4.5S38.4 25 35 25h-7z" fill="#22c55e" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Privexio logo">
+  <rect width="64" height="64" rx="14" fill="#ffffff" />
+  <g transform="translate(8 8) scale(2)" fill="none" stroke="#148f8f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+    <path d="m22 12.5-9.17 4.17a2 2 0 0 1-1.66 0L2 12.5" />
+    <path d="m22 17.5-9.17 4.17a2 2 0 0 1-1.66 0L2 17.5" />
+  </g>
 </svg>
