@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CalendarDays, Facebook, Layers, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
@@ -27,7 +27,7 @@ const Footer = () => {
       <div className="page-container">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <Layers className="h-8 w-8 text-primary" />
               <span className="text-2xl font-bold tracking-tight text-white">Privexio</span>
             </Link>
@@ -60,10 +60,10 @@ const Footer = () => {
           <div>
             <h4 className="mb-4 font-bold text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link to="/" className="transition-colors hover:text-primary">Home</Link></li>
-              <li><Link to="/case-studies" className="transition-colors hover:text-primary">Case Studies</Link></li>
-              <li><Link to="/about" className="transition-colors hover:text-primary">About Us</Link></li>
-              <li><Link to="/contact" className="transition-colors hover:text-primary">Contact</Link></li>
+              <li><Link href="/" className="transition-colors hover:text-primary">Home</Link></li>
+              <li><Link href="/case-studies" className="transition-colors hover:text-primary">Case Studies</Link></li>
+              <li><Link href="/about" className="transition-colors hover:text-primary">About Us</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-primary">Contact</Link></li>
             </ul>
           </div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
             <h4 className="mb-4 font-bold text-white">Services</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               {serviceCatalog.map((service) => (
-                <li key={service.path}><Link to={service.path} className="transition-colors hover:text-primary">{service.navName}</Link></li>
+                <li key={service.path}><Link href={service.path} className="transition-colors hover:text-primary">{service.navName}</Link></li>
               ))}
             </ul>
           </div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import NotFoundPage from '@/pages/NotFoundPage';
+import NotFoundPage from '@/views/NotFoundPage';
 import { caseStudies } from '@/data/caseStudies';
 import { getCategory, getServiceBySlug } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -29,14 +29,14 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
       <main className="flex-grow">
         <section className="page-hero text-white">
           <div className="page-container-narrow">
-            <Link to={service.path} className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
+            <Link href={service.path} className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               Back to {service.title}
             </Link>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Specialized solution area</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">{category.title}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">{category.intro}</p>
             <div className="mt-8">
-              <Link to="/contact" className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90">
+              <Link href="/contact" className="inline-flex items-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90">
                 Request a Category Roadmap
               </Link>
             </div>
@@ -83,7 +83,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Related case study</p>
                 <h2 className="mt-3 max-w-4xl text-3xl font-bold text-white md:text-4xl">{relatedCaseStudy.title}</h2>
                 <p className="mt-5 max-w-3xl text-slate-300">{relatedCaseStudy.summary}</p>
-                <Link to={`/case-studies/${relatedCaseStudy.slug}`} className="mt-8 inline-flex items-center font-semibold text-primary">
+                <Link href={`/case-studies/${relatedCaseStudy.slug}`} className="mt-8 inline-flex items-center font-semibold text-primary">
                   Read the full project story
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

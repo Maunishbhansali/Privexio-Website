@@ -93,34 +93,49 @@
     @apply py-16 md:py-24;
   }
   .page-shell {
-    @apply theme-page;
+    background: var(--theme-bg);
+    color: var(--theme-fg);
   }
   .page-container {
-    @apply theme-container;
+    width: 100%;
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    padding-inline: var(--page-padding-x);
   }
   .page-container-narrow {
-    @apply theme-container-narrow;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--page-padding-x);
   }
   .page-section {
-    @apply theme-section;
+    padding-block: var(--section-padding-y);
   }
   .page-section-lg {
-    @apply theme-section-lg;
+    padding-block: var(--section-padding-y-lg);
   }
   .page-hero {
-    @apply theme-hero;
+    background: var(--theme-hero);
+    color: var(--theme-hero-fg);
+    padding-block: var(--hero-padding-y);
   }
   .page-hero-lg {
-    @apply theme-hero-lg;
+    padding-block: var(--hero-padding-y-lg);
   }
   .page-surface {
-    @apply theme-surface;
+    background: var(--theme-card);
+    color: var(--theme-card-fg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--theme-shadow-card);
   }
   .page-panel {
-    @apply theme-panel;
+    background: var(--theme-panel);
+    border-radius: var(--panel-radius);
   }
   .page-panel-strong {
-    @apply theme-panel-strong;
+    background: var(--theme-panel-strong);
+    border-radius: calc(var(--panel-radius) - 0.25rem);
   }
   .soft-reveal {
     animation: softReveal 0.7s ease-out both;

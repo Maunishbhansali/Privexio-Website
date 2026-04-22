@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CalendarDays, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL } from '@/lib/site-links';
@@ -31,7 +31,7 @@ const CTASection = ({
               </Button>
             </a>
           ) : (
-            <Link to={buttonLink}>
+            <Link href={buttonLink}>
               <Button size="lg" className="w-full rounded-full bg-white px-8 py-6 text-lg font-semibold text-primary hover:bg-gray-100 sm:w-auto">
                 {buttonText}
               </Button>
@@ -46,7 +46,7 @@ const CTASection = ({
               </Button>
             </a>
           ) : (
-            <Link to={secondaryLink}>
+            <Link href={secondaryLink}>
               <Button size="lg" variant="outline" className="w-full rounded-full border-white/40 bg-transparent px-8 py-6 text-lg text-white hover:bg-white hover:text-primary sm:w-auto">
                 <Mail className="mr-2 h-5 w-5" />
                 {secondaryText}

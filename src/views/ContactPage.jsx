@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactMap from '@/components/ContactMap';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -13,6 +13,15 @@ import { Briefcase, CalendarDays, Headphones, Mail, MapPin, Phone, Presentation 
 import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@privexio.com';
+
+const ContactMap = dynamic(() => import('@/components/ContactMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[280px] items-center justify-center bg-muted px-6 text-center">
+      <p className="text-sm text-muted-foreground">Loading map for 600 John St N, Hamilton, ON L8L 4S3...</p>
+    </div>
+  ),
+});
 
 const inquiryCards = [
   {

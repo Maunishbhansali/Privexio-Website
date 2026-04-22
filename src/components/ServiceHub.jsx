@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarDays, CheckCircle, Mail, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -95,7 +95,7 @@ const ServiceHub = ({ service }) => {
                 <h3 className="text-2xl font-bold">{category.title}</h3>
                 <p className="mt-4 text-sm font-semibold text-primary">{category.trend}</p>
                 <p className="mt-4 flex-grow text-muted-foreground">{category.intro}</p>
-                <Link to={`${service.path}/${category.slug}`} className="mt-6 inline-flex items-center font-semibold text-primary">
+                <Link href={`${service.path}/${category.slug}`} className="mt-6 inline-flex items-center font-semibold text-primary">
                   Explore this service area
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>

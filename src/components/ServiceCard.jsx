@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const ServiceCard = ({ icon: Icon, title, description, link }) => {
@@ -12,7 +12,7 @@ const ServiceCard = ({ icon: Icon, title, description, link }) => {
       <h3 className="text-xl font-bold mb-3">{title}</h3>
       <p className="text-muted-foreground flex-grow mb-4">{description}</p>
       <Link 
-        to={link} 
+        href={link} 
         className="inline-flex items-center text-primary font-medium hover:text-primary/80"
       >
         Learn More <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 smooth-transition" />

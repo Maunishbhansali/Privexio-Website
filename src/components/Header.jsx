@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { CalendarDays, ChevronDown, Layers, Mail, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
@@ -9,7 +10,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [activeServicePath, setActiveServicePath] = useState(serviceCatalog[0]?.path ?? '/msp');
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const leftColumnServices = serviceCatalog.filter((_, index) => index % 2 === 0);
   const rightColumnServices = serviceCatalog.filter((_, index) => index % 2 === 1);
 
@@ -21,13 +22,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="page-container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2">
           <Layers className="h-8 w-8 text-primary" />
           <span className="text-2xl font-bold tracking-tight text-primary">Privexio</span>
         </Link>
 
         <nav className="hidden items-center space-x-7 md:flex">
-          <Link to="/" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Home</Link>
+          <Link href="/" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Home</Link>
 
           <div
             className="group relative"
@@ -62,7 +63,7 @@ const Header = () => {
                           isActive ? 'bg-primary/10' : 'hover:bg-slate-50'
                         }`}
                       >
-                        <Link to={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
+                        <Link href={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
                           <Icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${isActive ? 'text-primary' : ''}`} />
                           <div className="min-w-0">
                             <span className="block font-semibold leading-snug">{service.navName}</span>
@@ -75,7 +76,7 @@ const Header = () => {
                               {service.categories.map((category) => (
                                 <Link
                                   key={category.slug}
-                                  to={`${service.path}/${category.slug}`}
+                                  href={`${service.path}/${category.slug}`}
                                   className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50 hover:text-primary"
                                 >
                                   {category.title}
@@ -94,9 +95,9 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
-          <Link to="/about" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
-          <Link to="/contact" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
+          <Link href="/case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
+          <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
+          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
           <a href={MAILTO_URL}>
             <Button variant="outline" className="rounded-full">
@@ -126,20 +127,20 @@ const Header = () => {
 
       {isMobileMenuOpen && (
         <div id="mobile-navigation" className="space-y-4 border-t border-border bg-background px-4 py-4 md:hidden">
-          <Link to="/" className="block text-sm font-medium text-foreground">Home</Link>
+          <Link href="/" className="block text-sm font-medium text-foreground">Home</Link>
           <div className="space-y-2">
             <span className="block text-sm font-bold uppercase tracking-wider text-muted-foreground">Services</span>
             <div className="ml-2 space-y-2 border-l-2 border-border pl-4">
               {serviceCatalog.map((service) => (
-                <Link key={service.path} to={service.path} className="block text-sm text-foreground">
+                <Link key={service.path} href={service.path} className="block text-sm text-foreground">
                   {service.navName}
                 </Link>
               ))}
             </div>
           </div>
-          <Link to="/case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
-          <Link to="/about" className="block text-sm font-medium text-foreground">About</Link>
-          <Link to="/contact" className="block text-sm font-medium text-foreground">Contact</Link>
+          <Link href="/case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
+          <Link href="/about" className="block text-sm font-medium text-foreground">About</Link>
+          <Link href="/contact" className="block text-sm font-medium text-foreground">Contact</Link>
           <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm font-bold text-primary">
             <CalendarDays className="mr-2 h-4 w-4" />
             Schedule a Consultation

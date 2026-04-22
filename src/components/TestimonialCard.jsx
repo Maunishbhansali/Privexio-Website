@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const TestimonialCard = ({ slug, result, company, industry, summary, outcome }) => {
   return (
-    <Link to={`/case-studies/${slug}`} className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Link href={`/case-studies/${slug}`} className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="min-h-[10.5rem]">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{industry}</p>
         <h3 className="mt-3 line-clamp-4 text-2xl font-bold leading-tight text-foreground">{result}</h3>

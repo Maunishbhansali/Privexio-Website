@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import TestimonialCard from '@/components/TestimonialCard';
 import { Button } from '@/components/ui/button';
@@ -28,7 +28,7 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
-        <Link to="/case-studies" className="text-sm font-semibold text-primary hover:text-primary/80">
+        <Link href="/case-studies" className="text-sm font-semibold text-primary hover:text-primary/80">
           View all case studies
         </Link>
       </div>

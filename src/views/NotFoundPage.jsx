@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -21,10 +21,10 @@ const NotFoundPage = () => {
               The page may have moved, the link may be outdated, or the URL may be incorrect.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link to="/">
+              <Link href="/">
                 <Button size="lg" className="rounded-full px-8">Back to Home</Button>
               </Link>
-              <Link to="/contact">
+              <Link href="/contact">
                 <Button
                   size="lg"
                   variant="outline"
@@ -34,7 +34,7 @@ const NotFoundPage = () => {
                 </Button>
               </Link>
             </div>
-            <Link to="/" className="mt-8 inline-flex items-center text-sm font-semibold text-primary">
+            <Link href="/" className="mt-8 inline-flex items-center text-sm font-semibold text-primary">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Return to the main site
             </Link>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowLeft, CheckCircle, Clock, MapPin } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import NotFoundPage from '@/pages/NotFoundPage';
+import NotFoundPage from '@/views/NotFoundPage';
 import { getCaseStudy } from '@/data/caseStudies';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
@@ -23,7 +23,7 @@ const CaseStudyPage = ({ slug }) => {
       <main className="flex-grow">
         <section className="page-hero text-white">
           <div className="page-container-narrow">
-            <Link to="/case-studies" className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
+            <Link href="/case-studies" className="mb-6 inline-flex items-center text-sm font-semibold text-primary">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to case studies
             </Link>

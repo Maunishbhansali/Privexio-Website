@@ -1,7 +1,10 @@
 node_modules/
+.next/
+out/
 dist/
 build/
 .codex-dev.log
+next-dev.log
 .DS_Store
 Thumbs.db
 *.local

@@ -1,10 +1,14 @@
-import { useLocation } from 'react-router-dom';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { useLayoutEffect } from 'react';
 
 const ScrollToTop = () => {
-    const { pathname, hash } = useLocation();
+    const pathname = usePathname();
 
     useLayoutEffect(() => {
+        const hash = window.location.hash;
+
         if (hash) {
             const element = document.getElementById(hash.replace('#', ''));
             if (element) {
@@ -14,7 +18,7 @@ const ScrollToTop = () => {
         }
 
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    }, [pathname, hash]);
+    }, [pathname]);
 
     return null;
 }
