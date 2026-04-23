@@ -1,19 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { CalendarDays, Facebook, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { CalendarDays, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import { CALENDAR_URL, CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
+import { CALENDAR_URL, CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
 const Footer = () => {
   const { toast } = useToast();
-
-  const handleSocialClick = () => {
-    toast({
-      title: 'Feature not implemented',
-      description: 'Social media links will be configured soon.',
-    });
-  };
 
   const handleLegalClick = () => {
     toast({
@@ -51,15 +44,33 @@ const Footer = () => {
               </a>
             </div>
             <div className="flex space-x-4">
-              <button type="button" onClick={handleSocialClick} className="text-slate-400 transition-colors hover:text-primary" aria-label="LinkedIn coming soon">
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 transition-colors hover:text-primary"
+                aria-label="Privexio on LinkedIn"
+              >
                 <Linkedin size={20} />
-              </button>
-              <button type="button" onClick={handleSocialClick} className="text-slate-400 transition-colors hover:text-primary" aria-label="Twitter coming soon">
-                <Twitter size={20} />
-              </button>
-              <button type="button" onClick={handleSocialClick} className="text-slate-400 transition-colors hover:text-primary" aria-label="Facebook coming soon">
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 transition-colors hover:text-primary"
+                aria-label="Privexio on Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 transition-colors hover:text-primary"
+                aria-label="Privexio on Facebook"
+              >
                 <Facebook size={20} />
-              </button>
+              </a>
             </div>
           </div>
 
