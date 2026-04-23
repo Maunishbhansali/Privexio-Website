@@ -1,14 +1,10 @@
+# Dependencies / build outputs
 node_modules/
 .next/
 out/
 dist/
-build/
-.codex-dev.log
+
+# Local logs
+dev-server.log
 next-dev.log
-.DS_Store
-Thumbs.db
-*.local
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+.codex-dev.log

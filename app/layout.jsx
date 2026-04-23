@@ -2,8 +2,8 @@ import '@/index.css';
 import 'leaflet/dist/leaflet.css';
 
 const siteUrl = 'https://privexio.com';
-const defaultTitle = 'Privexio | Managed IT, Cloud, Software, Web, Mobile, and AI Services';
-const defaultDescription = 'Privexio provides managed IT, cybersecurity, custom software development, SEO web development, mobile apps, cloud solutions, and AI automation for modern businesses.';
+const defaultTitle = 'Privexio | Managed IT, Cloud & Software Services';
+const defaultDescription = 'Managed IT, cybersecurity, cloud, and custom software to secure operations, reduce downtime, and ship faster. Book a consultation with Privexio.';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -27,25 +27,28 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  manifest: '/site.webmanifest?v=20260423',
   icons: {
     icon: [
-      { url: '/brand/png/privexio-mark-white-bg-64x64.webp?v=20260422', sizes: '64x64', type: 'image/webp' },
+      { url: '/favicon.ico?v=20260423', type: 'image/x-icon' },
+      { url: '/favicon-32x32.png?v=20260423', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png?v=20260423', sizes: '16x16', type: 'image/png' },
     ],
-    apple: [{ url: '/brand/png/privexio-mark-white-bg-256x256.webp?v=20260422', sizes: '256x256', type: 'image/webp' }],
+    apple: [{ url: '/apple-touch-icon.png?v=20260423', sizes: '180x180', type: 'image/png' }],
   },
   openGraph: {
     type: 'website',
     siteName: 'Privexio',
-    title: 'Privexio | Managed IT, Software, Cloud, Web, Mobile and AI Services',
-    description: 'Privexio helps organizations modernize with managed IT, cybersecurity, software, web, mobile, cloud, and AI services.',
+    title: defaultTitle,
+    description: defaultDescription,
     url: '/',
     locale: 'en',
     images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privexio | Enterprise Technology Services',
-    description: 'Managed IT, cybersecurity, software, web, mobile, cloud, and AI services for modern business teams.',
+    title: defaultTitle,
+    description: defaultDescription,
     images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
   },
   other: {

@@ -16,8 +16,8 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 
 const HomePage = () => {
   usePageMeta(
-    'Managed IT, Software, Cloud, Web, Mobile and AI Services for Growth-Focused Businesses',
-    'Privexio provides managed IT, cybersecurity, software development, web development, mobile apps, cloud solutions, and AI automation for businesses growing across competitive markets.'
+    'Managed IT, Cybersecurity & Software Services',
+    'Managed IT, cybersecurity, cloud, and custom software to secure operations, reduce downtime, and ship faster. Book a consultation with Privexio.'
   );
 
   return (
