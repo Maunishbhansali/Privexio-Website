@@ -16,7 +16,7 @@ const serviceSlugByRoute = {
   'additional-services': 'it-consulting-digital-transformation',
 };
 
-const staticRoutes = ['', ...Object.keys(serviceSlugByRoute), 'case-studies', 'about', 'contact'];
+const staticRoutes = ['', ...Object.keys(serviceSlugByRoute), 'case-studies', 'about', 'contact', 'privacy', 'terms'];
 
 function getRouteMetadata(slugSegments) {
   const [section = '', detail] = slugSegments;
@@ -67,6 +67,14 @@ function getRouteMetadata(slugSegments) {
     contact: {
       title: 'Contact',
       description: 'Contact Privexio to discuss managed IT, cybersecurity, software, web, mobile, cloud, and AI service needs.',
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      description: 'Read Privexio privacy practices, including what information we collect and how we use it.',
+    },
+    terms: {
+      title: 'Terms of Service',
+      description: 'Review Privexio terms of service for using our website and engaging with our services.',
     },
   };
 

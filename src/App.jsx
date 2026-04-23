@@ -20,6 +20,8 @@ import CaseStudiesPage from '@/views/CaseStudiesPage';
 import CaseStudyPage from '@/views/CaseStudyPage';
 import AboutPage from '@/views/AboutPage';
 import ContactPage from '@/views/ContactPage';
+import PrivacyPolicyPage from '@/views/PrivacyPolicyPage';
+import TermsOfServicePage from '@/views/TermsOfServicePage';
 import NotFoundPage from '@/views/NotFoundPage';
 
 const routeComponents = {
@@ -36,6 +38,8 @@ const routeComponents = {
   'case-studies': CaseStudiesPage,
   about: AboutPage,
   contact: ContactPage,
+  privacy: PrivacyPolicyPage,
+  terms: TermsOfServicePage,
 };
 
 const serviceSlugByRoute = {

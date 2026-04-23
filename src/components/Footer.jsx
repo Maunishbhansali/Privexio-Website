@@ -1,20 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { CalendarDays, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
 import { CALENDAR_URL, CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
 const Footer = () => {
-  const { toast } = useToast();
-
-  const handleLegalClick = () => {
-    toast({
-      title: 'Coming soon',
-      description: 'Legal pages have not been added yet.',
-    });
-  };
-
   return (
     <footer className="border-t border-slate-800 bg-slate-900 py-12 text-slate-200">
       <div className="page-container">
@@ -112,8 +102,8 @@ const Footer = () => {
         <div className="mt-12 flex flex-col items-center justify-between border-t border-slate-800 pt-8 text-sm text-slate-400 md:flex-row">
           <p>&copy; {new Date().getFullYear()} Privexio. All rights reserved.</p>
           <div className="mt-4 space-x-4 md:mt-0">
-            <button type="button" onClick={handleLegalClick} className="transition-colors hover:text-white">Privacy Policy</button>
-            <button type="button" onClick={handleLegalClick} className="transition-colors hover:text-white">Terms of Service</button>
+            <Link href="/privacy" className="transition-colors hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="transition-colors hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>
