@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { BookOpen, Cloud, ShieldCheck, Users, Wrench, Workflow } from 'lucide-react';
+import { ShieldCheck, Users, Wrench } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -121,40 +120,18 @@ const AboutPage = () => {
                       <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-primary/25 blur-3xl" />
                       <div className="absolute -right-20 top-10 h-64 w-64 rounded-full bg-sky-500/15 blur-3xl" />
                     </div>
-                    <div className="relative flex items-center gap-4 p-6">
-                      <div className="grid place-items-center rounded-2xl bg-white/10 p-3">
+                    <div className="relative p-6">
+                      <div className="relative overflow-hidden rounded-2xl border border-white/10">
                         <img
-                          src="/brand/png/privexio-mark-white-bg-256x256.webp"
-                          alt=""
-                          width="64"
-                          height="64"
-                          className="h-16 w-16 rounded-xl"
+                          src="/people/maunish-bhansali.webp"
+                          alt="Maunish Bhansali"
+                          width="960"
+                          height="720"
+                          loading="lazy"
+                          className="h-56 w-full object-cover md:h-60"
                         />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
                       </div>
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-white">CEO Photo Placeholder</p>
-                        <p className="mt-1 text-sm text-slate-300">Replace this tile with a real headshot when ready.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-border/80 bg-background p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">Focus</p>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      {[
-                        { icon: Cloud, label: 'Cloud and identity' },
-                        { icon: ShieldCheck, label: 'Security operations' },
-                        { icon: BookOpen, label: 'Documentation and runbooks' },
-                        { icon: Workflow, label: 'Operational reliability' },
-                      ].map((item) => {
-                        const Icon = item.icon;
-                        return (
-                          <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-border bg-white px-4 py-3">
-                            <Icon className="h-5 w-5 text-primary" />
-                            <span className="text-sm font-semibold text-foreground">{item.label}</span>
-                          </div>
-                        );
-                      })}
                     </div>
                   </div>
                 </div>

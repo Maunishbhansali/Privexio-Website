@@ -8,3 +8,4 @@ dist/
 dev-server.log
 next-dev.log
 .codex-dev.log
+serve-out*.log

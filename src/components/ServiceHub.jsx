@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarDays, CheckCircle, Mail, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ParallaxLayer from '@/components/ParallaxLayer';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 
 const cardVariants = {
@@ -20,8 +21,16 @@ const ServiceHub = ({ service }) => {
   return (
     <>
       <section className="page-hero page-hero-lg relative overflow-hidden">
-        <div className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/25 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
+        <ParallaxLayer
+          className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/25 blur-3xl"
+          from={120}
+          to={-120}
+        />
+        <ParallaxLayer
+          className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-secondary/20 blur-3xl"
+          from={-110}
+          to={110}
+        />
         <div className="page-container relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-primary">{service.eyebrow}</p>

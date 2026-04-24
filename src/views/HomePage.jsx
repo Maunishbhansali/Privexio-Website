@@ -8,6 +8,7 @@ import MetricsSection from '@/components/MetricsSection';
 import PartnerLogos from '@/components/PartnerLogos';
 import ServiceCard from '@/components/ServiceCard';
 import CTASection from '@/components/CTASection';
+import ParallaxLayer from '@/components/ParallaxLayer';
 import { Button } from '@/components/ui/button';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { caseStudies } from '@/data/caseStudies';
@@ -25,8 +26,16 @@ const HomePage = () => {
       <Header />
 
       <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-20 md:pb-32">
-        <div className="absolute right-0 top-12 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block" />
-        <div className="absolute right-16 top-28 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block" />
+        <ParallaxLayer
+          className="absolute right-0 top-12 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block"
+          from={-70}
+          to={70}
+        />
+        <ParallaxLayer
+          className="absolute right-16 top-28 hidden h-64 w-64 rounded-full bg-primary/15 blur-3xl lg:block"
+          from={90}
+          to={-90}
+        />
         <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Technology partner for growth-focused businesses</p>
@@ -164,7 +173,11 @@ const HomePage = () => {
       </section>
 
       <section id="case-studies" className="page-section scroll-mt-24 bg-background relative">
-        <div className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+        <ParallaxLayer
+          className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none"
+          from={120}
+          to={-120}
+        />
         <div className="page-container relative z-10">
           <div className="mb-16 max-w-3xl">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary">Proven Results</p>
