@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -107,12 +108,11 @@ const ContactPage = () => {
     <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <div className="flex-grow">
-        <section className="page-hero text-center">
-          <div className="page-container-narrow">
-            <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">Contact Us</h1>
-            <p className="mx-auto max-w-2xl text-xl text-slate-300">Connect with our team for consultations, project planning, technical support questions, or general business inquiries.</p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Contact"
+          title="Start a practical conversation."
+          description="Connect with our team for consultations, project planning, technical support questions, or general business inquiries."
+        />
 
         <section className="page-section page-container">
           <div className="mb-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -234,9 +234,9 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border bg-card p-3 shadow-sm">
+              <div className="relative z-0 isolate rounded-lg border border-border bg-card p-3 shadow-sm">
                 <h3 className="text-lg font-bold text-foreground mb-3">Find Us</h3>
-                <div className="overflow-hidden rounded-md border border-border bg-muted">
+                <div className="relative z-0 overflow-hidden rounded-md border border-border bg-muted">
                   <ContactMap />
                 </div>
                 <div className="mt-3 flex flex-wrap gap-3">

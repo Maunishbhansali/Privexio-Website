@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import { CONTACT_EMAIL, MAILTO_URL } from '@/lib/site-links';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
@@ -17,16 +18,13 @@ const PrivacyPolicyPage = () => {
     <div className="page-shell min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow">
-        <section className="border-b border-border bg-background">
-          <div className="page-container-narrow">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Legal</p>
-            <h1 className="mt-4 text-4xl font-bold text-foreground md:text-5xl">Privacy Policy</h1>
-            <p className="mt-5 max-w-3xl text-lg text-muted-foreground">
-              This policy explains how we collect, use, and protect information when you visit Privexio.com or contact us.
-            </p>
-            <p className="mt-6 pb-10 text-sm text-muted-foreground">Last updated: {LAST_UPDATED}</p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Legal"
+          title="Privacy Policy"
+          description="This policy explains how we collect, use, and protect information when you visit Privexio.com or contact us."
+        >
+          <p className="mb-6 text-sm font-semibold text-slate-300">Last updated: {LAST_UPDATED}</p>
+        </PageHero>
 
         <section className="page-section">
           <div className="page-container-narrow space-y-10 text-muted-foreground">

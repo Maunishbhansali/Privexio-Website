@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import { Button } from '@/components/ui/button';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
@@ -13,13 +14,11 @@ const NotFoundPage = () => {
     <div className="page-shell min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
-        <section className="page-hero text-white">
-          <div className="page-container-narrow text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">404 error</p>
-            <h1 className="mt-4 text-4xl font-bold md:text-6xl">We couldn&apos;t find that page.</h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              The page may have moved, the link may be outdated, or the URL may be incorrect.
-            </p>
+        <PageHero
+          eyebrow="404 error"
+          title="We couldn't find that page."
+          description="The page may have moved, the link may be outdated, or the URL may be incorrect."
+        >
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href="/">
                 <Button size="lg" className="rounded-full px-8">Back to Home</Button>
@@ -38,8 +37,7 @@ const NotFoundPage = () => {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Return to the main site
             </Link>
-          </div>
-        </section>
+        </PageHero>
       </main>
       <Footer />
     </div>

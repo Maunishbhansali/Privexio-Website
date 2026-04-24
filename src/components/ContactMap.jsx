@@ -79,7 +79,7 @@ const ContactMap = () => {
       center={[location.lat, location.lon]}
       zoom={16}
       scrollWheelZoom={false}
-      className="h-[280px] w-full"
+      className="relative z-0 h-[280px] w-full"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

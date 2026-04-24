@@ -2,6 +2,7 @@ import React from 'react';
 import { ShieldCheck, Users, Wrench } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const CEO_NAME = 'Maunish Bhansali';
@@ -16,47 +17,11 @@ const AboutPage = () => {
     <div className="page-shell min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow">
-        <section className="page-hero">
-          <div className="page-container">
-            <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-              <div>
-                <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-200">
-                  Founded in 2023
-                </p>
-                <h1 className="mt-6 text-4xl font-bold text-white md:text-5xl">About Privexio</h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-                  Privexio helps teams run dependable IT, strengthen security, and modernize cloud operations with delivery that stays supportable after go-live.
-                </p>
-              </div>
-
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-5 shadow-2xl backdrop-blur">
-                <div className="rounded-[1.5rem] bg-white p-6 text-slate-950">
-                  <div className="flex items-start justify-between gap-6">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">What we optimize for</p>
-                      <p className="mt-2 text-2xl font-bold">Operational clarity</p>
-                    </div>
-                    <div className="h-10 w-10 rounded-full bg-slate-950" />
-                  </div>
-                  <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                    {[
-                      'Security-first defaults',
-                      'M365 and identity',
-                      'Cloud migrations',
-                      'Backups and recovery',
-                      'Monitoring and runbooks',
-                      'Ongoing support',
-                    ].map((item) => (
-                      <div key={item} className="rounded-2xl bg-slate-100 px-4 py-3 font-semibold text-slate-800">
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Founded in 2023"
+          title="About Privexio"
+          description="Privexio helps teams run dependable IT, strengthen security, and modernize cloud operations with delivery that stays supportable after go-live."
+        />
 
         <section className="page-section">
           <div className="page-container-narrow">
