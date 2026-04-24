@@ -114,25 +114,16 @@ const AboutPage = () => {
                 <h2 className="mt-3 text-3xl font-bold text-foreground">{CEO_NAME}</h2>
                 <p className="mt-2 text-sm font-semibold text-muted-foreground">Founder &amp; CEO</p>
 
-                <div className="mt-6 grid gap-4">
-                  <div className="relative overflow-hidden rounded-2xl border border-border bg-slate-950">
-                    <div className="absolute inset-0 opacity-70">
-                      <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-primary/25 blur-3xl" />
-                      <div className="absolute -right-20 top-10 h-64 w-64 rounded-full bg-sky-500/15 blur-3xl" />
-                    </div>
-                    <div className="relative p-6">
-                      <div className="relative overflow-hidden rounded-2xl border border-white/10">
-                        <img
-                          src="/people/maunish-bhansali.webp"
-                          alt="Maunish Bhansali"
-                          width="960"
-                          height="720"
-                          loading="lazy"
-                          className="h-56 w-full object-cover md:h-60"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-                      </div>
-                    </div>
+                <div className="mt-6">
+                  <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+                    <img
+                      src="/people/maunish-bhansali.webp"
+                      alt="Maunish Bhansali"
+                      width="1440"
+                      height="1080"
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover object-center"
+                    />
                   </div>
                 </div>
               </div>
