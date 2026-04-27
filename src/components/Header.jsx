@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CalendarDays, ChevronDown, Mail, Menu, X } from 'lucide-react';
@@ -10,9 +10,21 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [activeServicePath, setActiveServicePath] = useState(serviceCatalog[0]?.path ?? '/msp');
+  const hoverLockUntilRef = useRef(0);
   const pathname = usePathname();
   const leftColumnServices = serviceCatalog.filter((_, index) => index % 2 === 0);
   const rightColumnServices = serviceCatalog.filter((_, index) => index % 2 === 1);
+
+  const handleServiceHover = (path) => {
+    const now = Date.now();
+
+    if (now < hoverLockUntilRef.current || activeServicePath === path) {
+      return;
+    }
+
+    hoverLockUntilRef.current = now + 180;
+    setActiveServicePath(path);
+  };
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -57,42 +69,43 @@ const Header = () => {
                   {[leftColumnServices, rightColumnServices].map((columnServices, columnIndex) => (
                     <div key={columnIndex} className="space-y-2">
                       {columnServices.map((service) => {
-                    const Icon = service.icon;
-                    const isActive = activeServicePath === service.path;
+                        const Icon = service.icon;
+                        const isActive = activeServicePath === service.path;
 
-                    return (
-                      <div
-                        key={service.path}
-                        onMouseEnter={() => setActiveServicePath(service.path)}
-                        onFocus={() => setActiveServicePath(service.path)}
-                        className={`rounded-2xl px-4 py-4 transition-all duration-200 ${
-                          isActive ? 'bg-primary/10' : 'hover:bg-slate-50'
-                        }`}
-                      >
-                        <Link href={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
-                          <Icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${isActive ? 'text-primary' : ''}`} />
-                          <div className="min-w-0">
-                            <span className="block font-semibold leading-snug">{service.navName}</span>
-                          </div>
-                        </Link>
+                        return (
+                          <div
+                            key={service.path}
+                            onMouseEnter={() => handleServiceHover(service.path)}
+                            onMouseMove={() => handleServiceHover(service.path)}
+                            onFocus={() => setActiveServicePath(service.path)}
+                            className={`rounded-2xl px-4 py-4 transition-all duration-200 ${
+                              isActive ? 'bg-primary/10' : 'hover:bg-slate-50'
+                            }`}
+                          >
+                            <Link href={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
+                              <Icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${isActive ? 'text-primary' : ''}`} />
+                              <div className="min-w-0">
+                                <span className="block font-semibold leading-snug">{service.navName}</span>
+                              </div>
+                            </Link>
 
-                        {isActive && (
-                          <div className="mt-4 rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
-                            <div className="grid gap-2">
-                              {service.categories.map((category) => (
-                                <Link
-                                  key={category.slug}
-                                  href={`${service.path}/${category.slug}`}
-                                  className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50 hover:text-primary"
-                                >
-                                  {category.title}
-                                </Link>
-                              ))}
-                            </div>
+                            {isActive && (
+                              <div className="mt-4 rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_18px_45px_rgba(15,23,42,0.10)]">
+                                <div className="grid gap-2">
+                                  {service.categories.map((category) => (
+                                    <Link
+                                      key={category.slug}
+                                      href={`${service.path}/${category.slug}`}
+                                      className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50 hover:text-primary"
+                                    >
+                                      {category.title}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    );
+                        );
                       })}
                     </div>
                   ))}

@@ -119,12 +119,12 @@ const ContactPage = () => {
             {inquiryCards.map((card) => {
               const Icon = card.icon;
               return (
-                <div key={card.title} className="rounded-[1.5rem] border border-border bg-card p-6 shadow-sm">
+                <div key={card.title} className="flex h-full flex-col rounded-[1.5rem] border border-border bg-card p-6 shadow-sm">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h2 className="text-lg font-bold text-foreground">{card.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{card.description}</p>
+                  <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">{card.description}</p>
                   <a href={MAILTO_URL} className="mt-5 inline-flex text-sm font-semibold text-primary hover:text-primary/80">
                     {CONTACT_EMAIL}
                   </a>
@@ -133,10 +133,10 @@ const ContactPage = () => {
             })}
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col items-start gap-12 lg:flex-row">
             
             {/* Form */}
-            <div className="lg:w-2/3 bg-card border border-border p-8 rounded-lg shadow-sm">
+            <div className="w-full lg:w-2/3 bg-card border border-border p-8 rounded-lg shadow-sm">
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
