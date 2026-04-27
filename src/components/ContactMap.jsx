@@ -5,11 +5,17 @@ import L from 'leaflet';
 
 const addressQuery = '600 John St N, Hamilton, ON, L8L 4S3';
 const mapCenter = {
-  lat: 43.2755,
-  lon: -79.8505,
+  lat: 43.2745587,
+  lon: -79.8581752,
 };
 
 const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressQuery)}`;
+const locationMarkerIcon = L.divIcon({
+  className: 'privexio-map-marker',
+  html: '<span class="privexio-map-marker__pulse"></span><span class="privexio-map-marker__pulse privexio-map-marker__pulse--delay"></span><span class="privexio-map-marker__dot"></span>',
+  iconSize: [56, 56],
+  iconAnchor: [28, 28],
+});
 
 const ContactMap = () => {
   const mapElementRef = useRef(null);
@@ -30,11 +36,8 @@ const ContactMap = () => {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    L.circleMarker([mapCenter.lat, mapCenter.lon], {
-      color: '#16a34a',
-      fillColor: '#22c55e',
-      fillOpacity: 0.85,
-      radius: 10,
+    L.marker([mapCenter.lat, mapCenter.lon], {
+      icon: locationMarkerIcon,
     })
       .addTo(map)
       .bindPopup(`Privexio<br />${addressQuery}`);

@@ -241,7 +241,7 @@ const ContactPage = () => {
                 </div>
                 <div className="mt-3 flex flex-wrap gap-3">
                   <a
-                    href="https://www.openstreetmap.org/?mlat=43.2755&mlon=-79.8505#map=16/43.2755/-79.8505"
+                    href="https://www.openstreetmap.org/?mlat=43.2745587&mlon=-79.8581752#map=16/43.2745587/-79.8581752"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex text-sm font-medium text-primary hover:text-primary/80"
