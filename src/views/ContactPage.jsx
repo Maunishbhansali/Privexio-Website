@@ -110,12 +110,12 @@ const ContactPage = () => {
       <div className="flex-grow">
         <PageHero
           eyebrow="Contact"
-          title="Start a practical conversation."
-          description="Connect with our team for consultations, project planning, technical support questions, or general business inquiries."
+          title="Contact Privexio for a practical technology consultation."
+          description="Connect with our Hamilton team for managed IT, cybersecurity, cloud, software, web, mobile, AI, or digital transformation planning."
         />
 
         <section className="page-section page-container">
-          <div className="mb-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {inquiryCards.map((card) => {
               const Icon = card.icon;
               return (
@@ -124,8 +124,8 @@ const ContactPage = () => {
                     <Icon className="h-5 w-5" />
                   </div>
                   <h2 className="text-lg font-bold text-foreground">{card.title}</h2>
-                  <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">{card.description}</p>
-                  <a href={MAILTO_URL} className="mt-5 inline-flex text-sm font-semibold text-primary hover:text-primary/80">
+                  <p className="mt-3 min-h-0 text-sm leading-6 text-muted-foreground sm:min-h-[4.5rem]">{card.description}</p>
+                  <a href={MAILTO_URL} className="mt-5 inline-flex break-words text-sm font-semibold text-primary hover:text-primary/80">
                     {CONTACT_EMAIL}
                   </a>
                 </div>
@@ -136,10 +136,10 @@ const ContactPage = () => {
           <div className="flex flex-col items-start gap-12 lg:flex-row">
             
             {/* Form */}
-            <div className="w-full lg:w-2/3 bg-card border border-border p-8 rounded-lg shadow-sm">
+            <div className="w-full rounded-lg border border-border bg-card p-5 shadow-sm sm:p-8 lg:w-2/3">
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
                     <Input id="name" name="name" required value={formData.name} onChange={handleChange} className="bg-background text-foreground" />
@@ -150,7 +150,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} className="bg-background text-foreground" />
@@ -183,7 +183,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Details */}
-            <div className="lg:w-1/3 space-y-8">
+            <div className="w-full space-y-8 lg:w-1/3">
               <div>
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                 <p className="text-muted-foreground mb-8">Prefer to move faster? Schedule a consultation or email us directly during business hours and we&apos;ll route your inquiry to the right team.</p>
@@ -229,7 +229,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Email</h4>
-                    <a href={MAILTO_URL} className="text-muted-foreground hover:text-primary transition-colors">{CONTACT_EMAIL}</a>
+                    <a href={MAILTO_URL} className="break-words text-muted-foreground transition-colors hover:text-primary">{CONTACT_EMAIL}</a>
                   </div>
                 </div>
               </div>

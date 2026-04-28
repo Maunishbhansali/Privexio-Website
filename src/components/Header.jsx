@@ -33,8 +33,8 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
-      <div className="page-container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+      <div className="page-container flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="flex min-w-0 items-center space-x-2">
           <img
             src="/brand/png/privexio-mark-white-bg-64x64.webp"
             alt=""
@@ -42,11 +42,11 @@ const Header = () => {
             height="32"
             className="h-8 w-8 rounded-sm"
           />
-          <span className="text-2xl font-bold tracking-tight text-primary">Privexio</span>
+          <span className="truncate text-2xl font-bold tracking-tight text-primary max-[360px]:hidden">Privexio</span>
         </Link>
 
-        <nav className="hidden items-center space-x-7 md:flex">
-          <Link href="/" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Home</Link>
+        <nav className="hidden min-w-0 items-center gap-5 xl:flex 2xl:gap-7">
+          <Link href="/" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Home</Link>
 
           <div
             className="group relative"
@@ -55,7 +55,7 @@ const Header = () => {
           >
             <button
               type="button"
-              className="flex items-center py-2 text-sm font-medium text-foreground hover:text-primary smooth-transition"
+              className="flex items-center whitespace-nowrap py-2 text-sm font-medium text-foreground hover:text-primary smooth-transition"
               aria-expanded={isServicesOpen}
               aria-haspopup="menu"
               aria-controls="desktop-services-menu"
@@ -114,18 +114,18 @@ const Header = () => {
             )}
           </div>
 
-          <Link href="/case-studies" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
-          <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
-          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
+          <Link href="/case-studies" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
+          <Link href="/about" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
+          <Link href="/contact" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
           <a href={MAILTO_URL}>
-            <Button variant="outline" className="rounded-full">
+            <Button variant="outline" className="whitespace-nowrap rounded-full px-4">
               <Mail className="mr-2 h-4 w-4" />
               Email Us
             </Button>
           </a>
           <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
-            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button className="whitespace-nowrap rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90">
               <CalendarDays className="mr-2 h-4 w-4" />
               Schedule a Consultation
             </Button>
@@ -134,7 +134,7 @@ const Header = () => {
 
         <button
           type="button"
-          className="p-2 text-foreground md:hidden"
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-foreground hover:bg-muted xl:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
@@ -145,7 +145,7 @@ const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div id="mobile-navigation" className="space-y-4 border-t border-border bg-background px-4 py-4 md:hidden">
+        <div id="mobile-navigation" className="space-y-4 border-t border-border bg-background px-4 py-4 xl:hidden">
           <Link href="/" className="block text-sm font-medium text-foreground">Home</Link>
           <div className="space-y-2">
             <span className="block text-sm font-bold uppercase tracking-wider text-muted-foreground">Services</span>
@@ -160,14 +160,16 @@ const Header = () => {
           <Link href="/case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
           <Link href="/about" className="block text-sm font-medium text-foreground">About</Link>
           <Link href="/contact" className="block text-sm font-medium text-foreground">Contact</Link>
-          <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm font-bold text-primary">
-            <CalendarDays className="mr-2 h-4 w-4" />
-            Schedule a Consultation
-          </a>
-          <a href={MAILTO_URL} className="inline-flex items-center text-sm font-bold text-primary">
-            <Mail className="mr-2 h-4 w-4" />
-            Email Us
-          </a>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">
+              <CalendarDays className="mr-2 h-4 w-4" />
+              Schedule a Consultation
+            </a>
+            <a href={MAILTO_URL} className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-bold text-primary">
+              <Mail className="mr-2 h-4 w-4" />
+              Email Us
+            </a>
+          </div>
         </div>
       )}
     </header>

@@ -1,12 +1,12 @@
 import '@/index.css';
 import 'leaflet/dist/leaflet.css';
+import { DEFAULT_OG_IMAGE, getGlobalStructuredData, SITE_NAME, SITE_URL } from '@/lib/seo';
 
-const siteUrl = 'https://privexio.com';
-const defaultTitle = 'Privexio | Managed IT, Cloud & Software Services';
-const defaultDescription = 'Managed IT, cybersecurity, cloud, and custom software to secure operations, reduce downtime, and ship faster. Book a consultation with Privexio.';
+const defaultTitle = 'Privexio | Managed IT, Cloud, Cybersecurity & Software Services';
+const defaultDescription = 'Privexio provides managed IT, cybersecurity, cloud migration, custom software, web, mobile, AI automation, and IT consulting services for growth-focused teams.';
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: defaultTitle,
     template: '%s | Privexio',
@@ -23,7 +23,6 @@ export const metadata = {
     'cybersecurity services',
   ],
   authors: [{ name: 'Privexio' }],
-  robots: 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
   alternates: {
     canonical: '/',
   },
@@ -38,25 +37,25 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'Privexio',
+    siteName: SITE_NAME,
     title: defaultTitle,
     description: defaultDescription,
     url: '/',
     locale: 'en',
-    images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: defaultTitle,
     description: defaultDescription,
-    images: ['/brand/png/privexio-logo-full-white-bg-1024w.webp'],
+    images: [DEFAULT_OG_IMAGE],
   },
   other: {
     'format-detection': 'telephone=yes',
     'geo.region': 'CA-ON',
     'geo.placename': 'Hamilton',
-    'geo.position': '43.2755;-79.8505',
-    ICBM: '43.2755, -79.8505',
+    'geo.position': '43.2745587;-79.8581752',
+    ICBM: '43.2745587, -79.8581752',
   },
 };
 
@@ -66,72 +65,7 @@ export const viewport = {
   themeColor: '#0f172a',
 };
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Organization',
-      '@id': `${siteUrl}/#organization`,
-      name: 'Privexio',
-      url: `${siteUrl}/`,
-      logo: `${siteUrl}/brand/png/privexio-logo-full-white-bg-1024w.webp`,
-      email: 'maunish.bhansali@privexio.com',
-      telephone: '+1-226-868-8363',
-    },
-    {
-      '@type': 'ProfessionalService',
-      '@id': `${siteUrl}/#localbusiness`,
-      name: 'Privexio',
-      url: `${siteUrl}/`,
-      telephone: '+1-226-868-8363',
-      email: 'maunish.bhansali@privexio.com',
-      image: `${siteUrl}/brand/png/privexio-logo-full-white-bg-1024w.webp`,
-      description: 'Privexio provides managed IT, cybersecurity, cloud, software development, web, mobile, and AI services for modern businesses.',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '600 John St N',
-        addressLocality: 'Hamilton',
-        addressRegion: 'ON',
-        postalCode: 'L8L 4S3',
-        addressCountry: 'CA',
-      },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+1-226-868-8363',
-        contactType: 'sales',
-        availableLanguage: ['en'],
-      },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Privexio Technology Services',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services and Cybersecurity' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Software Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Web Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Migration and Optimization' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Automation and Machine Learning' } },
-        ],
-      },
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '09:00',
-          closes: '18:00',
-        },
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
-      url: `${siteUrl}/`,
-      name: 'Privexio',
-      publisher: { '@id': `${siteUrl}/#organization` },
-      inLanguage: 'en',
-    },
-  ],
-};
+const structuredData = getGlobalStructuredData();
 
 export default function RootLayout({ children }) {
   return (

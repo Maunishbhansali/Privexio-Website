@@ -27,13 +27,13 @@ const CaseStudyPage = ({ slug }) => {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to case studies
             </Link>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">{caseStudy.service} case study</p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">{caseStudy.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">{caseStudy.summary}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.28em]">{caseStudy.service} case study</p>
+            <h1 className="mt-4 break-words text-3xl font-bold leading-tight text-white sm:text-4xl md:text-6xl">{caseStudy.title}</h1>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">{caseStudy.summary}</p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl bg-white/10 p-5">
                 <p className="text-sm text-slate-300">Client</p>
-                <p className="mt-1 font-bold text-white">{caseStudy.company}</p>
+                <p className="mt-1 break-words font-bold text-white">{caseStudy.company}</p>
               </div>
               <div className="rounded-2xl bg-white/10 p-5">
                 <p className="text-sm text-slate-300">Industry</p>
@@ -49,10 +49,10 @@ const CaseStudyPage = ({ slug }) => {
 
         <section className="page-section">
           <div className="page-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <aside className="space-y-4">
+            <aside className="space-y-4 lg:sticky lg:top-24">
               <div className="rounded-[1.5rem] border border-border bg-card p-6">
                 <MapPin className="mb-3 h-6 w-6 text-primary" />
-                <p className="font-bold">{caseStudy.location}</p>
+                <p className="break-words font-bold">{caseStudy.location}</p>
               </div>
               <div className="rounded-[1.5rem] border border-border bg-card p-6">
                 <Clock className="mb-3 h-6 w-6 text-primary" />
@@ -69,20 +69,20 @@ const CaseStudyPage = ({ slug }) => {
             </aside>
             <article className="space-y-10">
               <div>
-                <h2 className="text-3xl font-bold">The challenge</h2>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{caseStudy.challenge}</p>
+                <h2 className="text-2xl font-bold sm:text-3xl">The challenge</h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{caseStudy.challenge}</p>
               </div>
               <div>
-                <h2 className="text-3xl font-bold">The Privexio solution</h2>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{caseStudy.solution}</p>
+                <h2 className="text-2xl font-bold sm:text-3xl">The Privexio solution</h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{caseStudy.solution}</p>
               </div>
               <div>
-                <h2 className="text-3xl font-bold">Measured results</h2>
+                <h2 className="text-2xl font-bold sm:text-3xl">Measured results</h2>
                 <div className="mt-6 grid gap-4">
                   {caseStudy.results.map((result) => (
                     <div key={result} className="flex items-start gap-3 rounded-2xl bg-secondary/5 p-5">
                       <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                      <span className="text-lg font-semibold">{result}</span>
+                      <span className="text-base font-semibold sm:text-lg">{result}</span>
                     </div>
                   ))}
                 </div>

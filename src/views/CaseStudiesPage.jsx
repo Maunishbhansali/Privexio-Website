@@ -19,9 +19,9 @@ const CaseStudiesPage = () => {
       <main className="flex-grow">
         <section className="page-hero text-white">
           <div className="page-container-narrow">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Case studies</p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">Proof of execution across real business challenges.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.28em]">Case studies</p>
+            <h1 className="mt-4 break-words text-3xl font-bold leading-tight text-white sm:text-4xl md:text-6xl">Proof of execution across real business challenges.</h1>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-200 sm:text-lg">
               Browse detailed Privexio project stories across cloud, managed IT, software, mobile, web, and AI work.
             </p>
           </div>

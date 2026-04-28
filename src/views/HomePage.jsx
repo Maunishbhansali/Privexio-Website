@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CalendarDays, CheckCircle, Mail, Star } from 'lucide-react';
+import { CalendarDays, Mail, Sparkles, Star, Target, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
@@ -14,6 +14,12 @@ import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { caseStudies } from '@/data/caseStudies';
 import { serviceCatalog } from '@/data/serviceCatalog';
 import { usePageMeta } from '@/hooks/use-page-meta';
+
+const collaborationMoments = [
+  { label: 'Direct access', detail: 'No handoff maze', icon: Users },
+  { label: 'Sharp decisions', detail: 'Clear next steps', icon: Target },
+  { label: 'Polished finish', detail: 'Built to last', icon: Sparkles },
+];
 
 const HomePage = () => {
   usePageMeta(
@@ -38,22 +44,22 @@ const HomePage = () => {
         />
         <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Technology partner for growth-focused businesses</p>
-            <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] text-slate-950 md:text-7xl">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.32em]">Technology partner for growth-focused businesses</p>
+            <h1 className="max-w-4xl text-4xl font-bold leading-[1.05] text-slate-950 sm:text-5xl md:text-7xl">
               Build, secure, and scale your business with Privexio.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
               Managed IT, cybersecurity, custom software, web and SEO solutions, mobile apps, cloud modernization, AI automation, and digital transformation support for teams expanding across competitive markets.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
-                <Button size="lg" className="w-full rounded-full px-8 py-6 text-lg sm:w-auto">
+              <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full rounded-full px-6 py-6 text-base sm:w-auto sm:px-8 sm:text-lg">
                   <CalendarDays className="mr-2 h-5 w-5" />
                   Schedule a Consultation
                 </Button>
               </a>
-              <a href={MAILTO_URL}>
-                <Button size="lg" variant="outline" className="w-full rounded-full px-8 py-6 text-lg sm:w-auto">
+              <a href={MAILTO_URL} className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full rounded-full px-6 py-6 text-base sm:w-auto sm:px-8 sm:text-lg">
                   <Mail className="mr-2 h-5 w-5" />
                   Contact Us
                 </Button>
@@ -80,16 +86,16 @@ const HomePage = () => {
                   <p className="mt-2 text-sm text-slate-300">Focused offers with specialized solution areas inside each service.</p>
                 </div>
               </div>
-              <div className="rounded-[2rem] bg-slate-100 p-5 shadow-xl">
-                <div className="rounded-[1.5rem] bg-white p-6">
-                  <div className="mb-6 flex items-center justify-between">
+              <div className="rounded-[2rem] bg-slate-100 p-4 shadow-xl sm:p-5">
+                <div className="rounded-[1.5rem] bg-white p-5 sm:p-6">
+                  <div className="mb-6 flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm text-slate-500">Privexio project view</p>
-                      <p className="text-2xl font-bold text-slate-950">Delivery stack</p>
+                      <p className="text-xl font-bold text-slate-950 sm:text-2xl">Delivery stack</p>
                     </div>
-                    <div className="h-10 w-10 rounded-full bg-slate-950" />
+                    <div className="h-10 w-10 flex-shrink-0 rounded-full bg-slate-950" />
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid gap-3 sm:grid-cols-2">
                     {[
                       'Managed IT',
                       'Cybersecurity',
@@ -119,8 +125,8 @@ const HomePage = () => {
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Services built for search and sales</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Eight focused service lines, each with deeper solution areas inside.</h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              The homepage now stays high-level. Each service card takes you into the more specialized offers and sub-services inside that capability.
+            <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+              Privexio connects managed IT services, cybersecurity consulting, cloud migration, custom software development, web development, mobile apps, AI automation, and IT consulting into one clear technology roadmap.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
@@ -135,35 +141,59 @@ const HomePage = () => {
 
       <section className="page-section bg-secondary/5">
         <div className="page-container">
-          <div className="flex flex-col items-center gap-16 lg:flex-row">
-            <div className="lg:w-1/2">
+          <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr]">
+            <div>
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Why choose Privexio</p>
-              <h2 className="mt-3 mb-6 text-3xl font-bold text-foreground md:text-4xl">Practical strategy, polished delivery, and support after launch.</h2>
-              <p className="mb-8 text-lg text-muted-foreground">
-                We combine managed support, product-minded execution, and clear communication so teams can move from planning to delivery without losing momentum.
+              <h2 className="mt-3 max-w-xl text-3xl font-bold text-foreground md:text-4xl">Enterprise-grade attention, built into every project.</h2>
+              <p className="mt-6 max-w-lg text-base text-muted-foreground sm:text-lg">
+                You get a calm, accountable Privexio partner who keeps the work moving, documents decisions, and makes communication simple from first conversation through post-launch support.
               </p>
-              <div className="space-y-4">
-                {[
-                  'Eight clearly defined top-level service offers',
-                  'Specialized sub-services organized inside each service page',
-                  'Direct scheduling and contact options without clutter',
-                  'Case studies with dedicated pages and consistent proof points',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="text-primary flex-shrink-0" />
-                    <span className="font-medium text-foreground">{item}</span>
-                  </div>
-                ))}
+              <div className="mt-9 grid gap-3 sm:max-w-xl sm:grid-cols-3">
+                {collaborationMoments.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <Icon className="h-6 w-6 text-primary" />
+                      <p className="mt-5 text-base font-bold text-slate-950">{item.label}</p>
+                      <p className="mt-1 text-sm font-medium text-slate-500">{item.detail}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-            <div className="w-full lg:w-1/2">
-              <div className="rounded-[2rem] bg-white p-5 shadow-xl">
-                <div className="rounded-[1.5rem] bg-slate-950 p-7 text-white">
-                  <p className="text-sm uppercase tracking-[0.2em] text-primary">Multi-market SEO map</p>
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    {serviceCatalog.map((service) => (
-                      <div key={service.slug} className="rounded-2xl bg-white/10 px-5 py-4 font-semibold text-white">{service.navName}</div>
-                    ))}
+            <div className="relative">
+              <div className="absolute -right-6 -top-6 hidden h-40 w-40 rounded-full bg-primary/15 blur-3xl lg:block" />
+              <div className="absolute -left-8 bottom-12 hidden h-28 w-28 rounded-full border border-primary/20 lg:block" />
+              <div className="relative overflow-hidden rounded-[2rem] bg-white p-4 shadow-xl sm:p-5">
+                <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem] bg-slate-950">
+                  <img
+                    src="/images/privexio-corporate-buildings.png"
+                    alt="Modern corporate office buildings"
+                    className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/48 to-slate-950/12" />
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                  <div className="relative z-10 flex min-h-[28rem] flex-col justify-between p-6 sm:p-8">
+                    <div className="max-w-[14rem] rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+                      <img
+                        src="/brand/png/privexio-logo-full-light-512w.webp"
+                        alt="Privexio"
+                        className="h-auto w-36"
+                      />
+                    </div>
+                    <div className="max-w-sm">
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Enterprise focus</p>
+                      <p className="mt-4 text-3xl font-black leading-tight text-white sm:text-4xl">
+                        Built for teams that expect clarity at every step.
+                      </p>
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {['Clear scope', 'Fast replies', 'Care after launch'].map((item) => (
+                          <span key={item} className="rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -181,8 +211,8 @@ const HomePage = () => {
         <div className="page-container relative z-10">
           <div className="mb-16 max-w-3xl">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary">Proven Results</p>
-            <h2 className="text-4xl font-extrabold text-slate-900 md:text-5xl leading-tight">Outcomes that matter.</h2>
-            <p className="mt-6 text-xl text-slate-600">
+            <h2 className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl md:text-5xl">Outcomes that matter.</h2>
+            <p className="mt-6 text-base text-slate-600 sm:text-xl">
               Explore how we&apos;ve helped organizations modernize infrastructure, launch new platforms, and secure their operations.
             </p>
           </div>

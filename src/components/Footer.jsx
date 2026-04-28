@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <footer className="border-t border-slate-800 bg-slate-900 py-12 text-slate-200">
       <div className="page-container">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex min-w-0 items-center space-x-2">
               <img
                 src="/brand/png/privexio-mark-white-bg-64x64.webp"
                 alt=""
@@ -18,17 +18,17 @@ const Footer = () => {
                 height="32"
                 className="h-8 w-8 rounded-sm"
               />
-              <span className="text-2xl font-bold tracking-tight text-white">Privexio</span>
+              <span className="truncate text-2xl font-bold tracking-tight text-white">Privexio</span>
             </Link>
             <p className="text-sm text-slate-400">
               Managed IT, software, web, mobile, cloud, AI, and cybersecurity services for ambitious growth-focused businesses.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-primary/40 px-4 py-2 text-sm font-bold text-primary">
+              <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-full border border-primary/40 px-4 py-2 text-sm font-bold text-primary sm:w-auto">
                 <CalendarDays className="mr-2 h-4 w-4" />
                 Schedule a Consultation
               </a>
-              <a href={MAILTO_URL} className="inline-flex items-center rounded-full border border-slate-600 px-4 py-2 text-sm font-bold text-white">
+              <a href={MAILTO_URL} className="inline-flex w-full items-center justify-center rounded-full border border-slate-600 px-4 py-2 text-sm font-bold text-white sm:w-auto">
                 <Mail className="mr-2 h-4 w-4" />
                 Email Us
               </a>
@@ -68,9 +68,9 @@ const Footer = () => {
             <h4 className="mb-4 font-bold text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/" className="transition-colors hover:text-primary">Home</Link></li>
-              <li><Link href="/case-studies" className="transition-colors hover:text-primary">Case Studies</Link></li>
-              <li><Link href="/about" className="transition-colors hover:text-primary">About Us</Link></li>
-              <li><Link href="/contact" className="transition-colors hover:text-primary">Contact</Link></li>
+              <li><Link href="/case-studies" className="transition-colors hover:text-primary">Privexio Portfolio</Link></li>
+              <li><Link href="/about" className="transition-colors hover:text-primary">About Privexio</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-primary">Contact Privexio</Link></li>
             </ul>
           </div>
 
@@ -93,15 +93,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={16} className="mr-2 flex-shrink-0" />
-                <a href={MAILTO_URL} className="transition-colors hover:text-primary">{CONTACT_EMAIL}</a>
+                <a href={MAILTO_URL} className="min-w-0 break-words transition-colors hover:text-primary">{CONTACT_EMAIL}</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-slate-800 pt-8 text-sm text-slate-400 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-center text-sm text-slate-400 md:flex-row md:text-left">
           <p>&copy; {new Date().getFullYear()} Privexio. All rights reserved.</p>
-          <div className="mt-4 space-x-4 md:mt-0">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-end">
             <Link href="/privacy" className="transition-colors hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="transition-colors hover:text-white">Terms of Service</Link>
           </div>

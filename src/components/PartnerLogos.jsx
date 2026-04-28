@@ -20,16 +20,16 @@ const partnerMarks = [
 const marqueeLogos = [...partnerMarks, ...partnerMarks];
 
 const BrandMark = ({ partner, compact = false }) => (
-  <div className={`partner-logo-mark flex items-center justify-center text-slate-800/85 ${compact ? 'h-20 px-4' : 'h-16 px-3'}`}>
+  <div className={`partner-logo-mark flex items-center justify-center text-slate-800/85 ${compact ? 'h-16 px-3 sm:h-20 sm:px-4' : 'h-16 px-3'}`}>
     <img
       src={`/brand/partners/${partner.slug}.webp`}
       alt=""
       width="44"
       height="44"
-      className={`${compact ? 'h-11 w-11' : 'h-9 w-9'} object-contain`}
+      className={`${compact ? 'h-9 w-9 sm:h-11 sm:w-11' : 'h-9 w-9'} object-contain`}
       loading="lazy"
     />
-    <span className={`${compact ? 'ml-4 text-[1.9rem]' : 'ml-3 text-[1.15rem]'} font-semibold tracking-tight text-slate-800/90`}>{partner.title}</span>
+    <span className={`${compact ? 'ml-3 text-xl sm:ml-4 sm:text-[1.9rem]' : 'ml-3 text-[1.15rem]'} font-semibold tracking-tight text-slate-800/90`}>{partner.title}</span>
   </div>
 );
 
@@ -41,7 +41,7 @@ const PartnerLogos = ({ compact = false }) => {
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Platforms we work across</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Built for modern cloud, network, and enterprise environments.</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Privexio supports projects that connect infrastructure, security, applications, and growth systems across the platforms business teams already depend on.
             </p>
           </div>

@@ -20,7 +20,7 @@ const AboutPage = () => {
         <PageHero
           eyebrow="Founded in 2023"
           title="About Privexio"
-          description="Privexio helps teams run dependable IT, strengthen security, and modernize cloud operations with delivery that stays supportable after go-live."
+          description="Privexio is a Hamilton technology services company helping teams run dependable IT, strengthen security, modernize cloud operations, and build supportable digital systems."
         />
 
         <section className="page-section">
@@ -57,11 +57,14 @@ const AboutPage = () => {
             <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <div className="rounded-[2rem] border border-border bg-card p-8">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">How it started</p>
-                <h2 className="mt-3 text-3xl font-bold text-foreground">A venture shaped by education and hands-on delivery.</h2>
-                <div className="mt-6 space-y-5 text-lg text-muted-foreground">
+                <h2 className="mt-3 text-3xl font-bold text-foreground">A Privexio story shaped by education and hands-on delivery.</h2>
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                   <p>
                     Privexio was started by {CEO_NAME} after building a foundation in computer science, then moving deep into infrastructure, system
                     administration, and cloud operations.
+                  </p>
+                  <p>
+                    Today, Privexio supports businesses that need managed IT services, cybersecurity, cloud migration, custom software, web development, mobile apps, AI automation, and digital transformation guidance from one accountable partner.
                   </p>
                   <p>
                     Across years of cumulative experience supporting 50+ organizations, one industry gap kept showing up: solutions that "work" but are not
@@ -94,8 +97,8 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <section className="mt-16 rounded-[2rem] bg-slate-50/90 p-8 md:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">What Privexio means in practice</p>
+            <section className="mt-16 rounded-[2rem] bg-slate-50/90 p-5 sm:p-8 md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.22em]">What Privexio means in practice</p>
               <div className="mt-8 grid gap-4 md:grid-cols-3">
                 {[
                   { value: '5+ years', label: 'Cumulative delivery experience' },
@@ -103,7 +106,7 @@ const AboutPage = () => {
                   { value: '2023', label: 'Company launch to close the gap' },
                 ].map((metric) => (
                   <div key={metric.value} className="rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
-                    <div className="text-4xl font-bold text-slate-950 md:text-5xl">{metric.value}</div>
+                    <div className="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">{metric.value}</div>
                     <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{metric.label}</p>
                   </div>
                 ))}

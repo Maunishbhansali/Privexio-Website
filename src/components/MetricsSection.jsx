@@ -37,7 +37,7 @@ const AnimatedMetric = ({ value, suffix, label, active }) => {
 
   return (
     <div className="rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
-      <div className="text-4xl font-bold text-slate-950 md:text-5xl">
+      <div className="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">
         {displayValue}
         {suffix}
       </div>
@@ -80,7 +80,7 @@ const MetricsSection = () => {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Proof points</p>
           <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Execution depth backed by measurable delivery outcomes.</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             We keep the experience clear for buyers while building the delivery discipline, support systems, and implementation depth enterprise teams actually need.
           </p>
         </div>
