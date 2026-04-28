@@ -44,12 +44,12 @@ const HomePage = () => {
         />
         <div className="page-container relative z-10 grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.32em]">Technology partner for growth-focused businesses</p>
-            <h1 className="max-w-4xl text-4xl font-bold leading-[1.05] text-slate-950 sm:text-5xl md:text-7xl">
-              Build, secure, and scale your business with Privexio.
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.3em]">Privexio technology partner</p>
+            <h1 className="max-w-4xl text-4xl font-bold leading-[1.04] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
+              Build, secure, and scale with clarity.
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-              Managed IT, cybersecurity, custom software, web and SEO solutions, mobile apps, cloud modernization, AI automation, and digital transformation support for teams expanding across competitive markets.
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+              Managed IT, security, cloud, software, AI, and web delivery under one accountable team.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
@@ -169,32 +169,8 @@ const HomePage = () => {
                   <img
                     src="/images/privexio-corporate-buildings.png"
                     alt="Modern corporate office buildings"
-                    className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/48 to-slate-950/12" />
-                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950/80 to-transparent" />
-                  <div className="relative z-10 flex min-h-[28rem] flex-col justify-between p-6 sm:p-8">
-                    <div className="max-w-[14rem] rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
-                      <img
-                        src="/brand/png/privexio-logo-full-light-512w.webp"
-                        alt="Privexio"
-                        className="h-auto w-36"
-                      />
-                    </div>
-                    <div className="max-w-sm">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Enterprise focus</p>
-                      <p className="mt-4 text-3xl font-black leading-tight text-white sm:text-4xl">
-                        Built for teams that expect clarity at every step.
-                      </p>
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {['Clear scope', 'Fast replies', 'Care after launch'].map((item) => (
-                          <span key={item} className="rounded-full bg-white/12 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
