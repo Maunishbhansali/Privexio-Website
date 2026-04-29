@@ -146,12 +146,19 @@ const FreeAuditModal = ({ open, onOpenChange }) => {
       }
 
       // Fires only after the Free Audit request is accepted by the existing form endpoint.
-      trackEvent('free_audit_form_submit', {
-        form_name: 'free_growth_audit',
-        company_name: formData.companyName.trim(),
-        website_url: formData.websiteUrl.trim(),
-        service_interest: formData.serviceInterest || 'Not specified',
-      });
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'free_audit_form_submit',
+          form_name: 'free_growth_audit',
+          company_name: formData.companyName.trim(),
+          website_url: formData.websiteUrl.trim(),
+          service_interest: formData.serviceInterest,
+          page_path: window.location.pathname,
+          page_title: document.title,
+          current_url: window.location.href,
+        });
+      }
 
       setIsSubmitted(true);
       setFormData(initialFormData);
