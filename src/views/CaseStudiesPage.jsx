@@ -39,7 +39,6 @@ const CaseStudiesPage = () => {
                     industry={caseStudy.industry}
                     summary={caseStudy.summary}
                     outcome={caseStudy.results[0]}
-                    image={caseStudy.image}
                   />
                 </div>
               ))}

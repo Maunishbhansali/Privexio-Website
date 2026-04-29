@@ -30,16 +30,6 @@ const CaseStudyPage = ({ slug }) => {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm sm:tracking-[0.28em]">{caseStudy.service} case study</p>
             <h1 className="mt-4 break-words text-3xl font-bold leading-tight text-white sm:text-4xl md:text-6xl">{caseStudy.title}</h1>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">{caseStudy.summary}</p>
-            {caseStudy.image && (
-              <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/10 shadow-2xl">
-                <img
-                  src={caseStudy.image}
-                  alt=""
-                  className="aspect-[16/7] w-full object-cover"
-                  aria-hidden="true"
-                />
-              </div>
-            )}
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl bg-white/10 p-5">
                 <p className="text-sm text-slate-300">Client</p>
