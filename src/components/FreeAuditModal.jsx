@@ -160,9 +160,6 @@ const FreeAuditModal = ({ open, onOpenChange }) => {
       trackEvent('free_audit_form_error', {
         form_name: 'free_growth_audit',
         error_type: 'submission',
-        company_name: formData.companyName.trim(),
-        website_url: formData.websiteUrl.trim(),
-        service_interest: formData.serviceInterest || 'Not specified',
       });
 
       setErrors({

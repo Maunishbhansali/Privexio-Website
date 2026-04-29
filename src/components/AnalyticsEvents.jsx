@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { CALENDAR_URL } from '@/lib/site-links';
-import { getSafeLinkText, trackEvent } from '@/lib/analytics';
+import { getSafeLinkText, trackEvent, trackPageView } from '@/lib/analytics';
 
 const scrollThresholds = [25, 50, 75, 90];
 
@@ -18,10 +18,24 @@ const isExternalUrl = (url) => {
   }
 };
 
+const getCtaLocation = (element) => {
+  const explicitLocation = element.closest('[data-cta-location]')?.dataset.ctaLocation;
+  if (explicitLocation) return explicitLocation;
+
+  if (element.closest('header')) return 'header';
+  if (element.closest('footer')) return 'footer';
+  if (element.closest('.page-hero')) return 'hero';
+  if (element.closest('.page-section')) return 'page_section';
+
+  return 'site';
+};
+
 const AnalyticsEvents = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    trackPageView();
+
     const firedScrollThresholds = new Set();
 
     // Fires scroll-depth events once per route view.
@@ -46,8 +60,11 @@ const AnalyticsEvents = () => {
 
       const analyticsElement = clickedElement.closest('[data-analytics-event]');
       if (analyticsElement) {
+        const analyticsLink = analyticsElement.closest('a[href]') ?? analyticsElement;
+        const analyticsUrl = analyticsLink instanceof HTMLAnchorElement ? analyticsLink.href : analyticsElement.getAttribute('href');
+
         trackEvent(analyticsElement.dataset.analyticsEvent, {
-          link_url: analyticsElement.getAttribute('href'),
+          link_url: analyticsUrl,
           link_text: analyticsElement.dataset.analyticsLabel || getSafeLinkText(analyticsElement),
           service_name: analyticsElement.dataset.serviceName,
         });
@@ -71,7 +88,7 @@ const AnalyticsEvents = () => {
       const normalizedLinkUrl = linkUrl.replace(/\/$/, '');
 
       if (href === CALENDAR_URL || normalizedLinkUrl === CALENDAR_URL) {
-        trackEvent('consultation_click', { link_url: linkUrl, link_text: linkText });
+        trackEvent('consultation_click', { cta_location: getCtaLocation(link) });
         // Calendly is currently opened as an external page, so this records the handoff.
         trackEvent('calendly_open', { link_url: linkUrl, link_text: linkText });
       }

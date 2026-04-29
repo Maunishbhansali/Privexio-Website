@@ -59,7 +59,7 @@ const ServiceHub = ({ service }) => {
           to={70}
         >
           <img
-            src="/images/privexio-corporate-buildings.png"
+            src={service.heroImage ?? '/images/privexio-corporate-buildings.png'}
             alt=""
             className="gsap-parallax-bg h-full w-full object-cover object-center"
             aria-hidden="true"
