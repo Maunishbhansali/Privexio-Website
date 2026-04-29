@@ -47,6 +47,12 @@ const PartnerLogos = ({ compact = false }) => {
           </div>
         )}
 
+        {compact && (
+          <p className="pt-16 text-left text-sm font-medium text-slate-950 sm:pt-20 sm:text-base md:text-lg">
+            120+ projects delivered across modern technology platforms with <span className="text-primary">Privexio</span>
+          </p>
+        )}
+
         <div className={`relative overflow-hidden ${compact ? 'py-10' : 'mt-14'}`}>
           <div className="partner-marquee-track items-center text-slate-800/90">
             {marqueeLogos.map((partner, index) => (
