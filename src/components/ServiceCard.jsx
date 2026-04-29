@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const ServiceCard = ({ icon: Icon, title, description, link }) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-6 flex flex-col h-full hover-lift group">
+    <div className="stagger-child bg-card border border-border rounded-lg p-6 flex flex-col h-full hover-lift group">
       <div className="h-12 w-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground smooth-transition">
         {Icon && <Icon size={24} />}
       </div>

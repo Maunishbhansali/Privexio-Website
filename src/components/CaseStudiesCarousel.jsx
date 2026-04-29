@@ -35,10 +35,10 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
 
       <div
         ref={trackRef}
-        className="hide-scrollbar flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto px-1 pt-2 pb-4 pr-2"
+        className="stagger-parent hide-scrollbar flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto px-1 pt-2 pb-4 pr-2"
       >
         {caseStudies.map((caseStudy) => (
-          <div key={caseStudy.slug} className="flex w-[85vw] max-w-[21rem] shrink-0 snap-start sm:w-[20rem] lg:w-[21rem]">
+          <div key={caseStudy.slug} className="stagger-child flex w-[85vw] max-w-[21rem] shrink-0 snap-start sm:w-[20rem] lg:w-[21rem]">
             <TestimonialCard
               slug={caseStudy.slug}
               result={caseStudy.title}

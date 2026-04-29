@@ -145,6 +145,14 @@
     background: var(--theme-panel-strong);
     border-radius: calc(var(--panel-radius) - 0.25rem);
   }
+  .scroll-fade-up,
+  .scroll-fade-left,
+  .scroll-fade-right,
+  .scroll-scale,
+  .stagger-child,
+  .gsap-parallax-bg {
+    will-change: transform, opacity;
+  }
   .soft-reveal {
     animation: softReveal 0.7s ease-out both;
   }

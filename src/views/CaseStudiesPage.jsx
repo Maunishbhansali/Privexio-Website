@@ -29,17 +29,18 @@ const CaseStudiesPage = () => {
 
         <section className="page-section bg-background">
           <div className="page-container">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div className="stagger-parent grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
               {caseStudies.map((caseStudy) => (
-                <TestimonialCard
-                  key={caseStudy.slug}
-                  slug={caseStudy.slug}
-                  result={caseStudy.title}
-                  company={caseStudy.company}
-                  industry={caseStudy.industry}
-                  summary={caseStudy.summary}
-                  outcome={caseStudy.results[0]}
-                />
+                <div key={caseStudy.slug} className="stagger-child flex">
+                  <TestimonialCard
+                    slug={caseStudy.slug}
+                    result={caseStudy.title}
+                    company={caseStudy.company}
+                    industry={caseStudy.industry}
+                    summary={caseStudy.summary}
+                    outcome={caseStudy.results[0]}
+                  />
+                </div>
               ))}
             </div>
           </div>

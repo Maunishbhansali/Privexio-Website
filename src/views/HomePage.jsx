@@ -33,6 +33,19 @@ const HomePage = () => {
 
       <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-20 md:pb-32">
         <ParallaxLayer
+          className="absolute right-0 top-0 hidden h-[calc(100%+7rem)] w-[58%] opacity-25 lg:block"
+          from={-50}
+          to={50}
+        >
+          <img
+            src="/images/privexio-corporate-buildings.png"
+            alt=""
+            className="gsap-parallax-bg h-full w-full object-cover object-center"
+            aria-hidden="true"
+          />
+        </ParallaxLayer>
+        <div className="absolute inset-y-0 right-0 hidden w-[64%] bg-gradient-to-r from-white via-white/80 to-white/15 lg:block" />
+        <ParallaxLayer
           className="absolute right-0 top-12 hidden h-[34rem] w-[46rem] rounded-l-[3rem] bg-slate-100 lg:block"
           from={-70}
           to={70}
@@ -122,14 +135,14 @@ const HomePage = () => {
 
       <section className="page-section bg-background">
         <div className="page-container">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="scroll-fade-up mx-auto mb-16 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Services built for search and sales</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Eight focused service lines, each with deeper solution areas inside.</h2>
             <p className="mt-5 text-base text-muted-foreground sm:text-lg">
               Privexio connects managed IT services, cybersecurity consulting, cloud migration, custom software development, web development, mobile apps, AI automation, and IT consulting into one clear technology roadmap.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div className="stagger-parent grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {serviceCatalog.map((service) => (
               <ServiceCard key={service.title} icon={service.icon} title={service.title} description={service.description} link={service.path} />
             ))}
@@ -142,17 +155,17 @@ const HomePage = () => {
       <section className="page-section bg-secondary/5">
         <div className="page-container">
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr]">
-            <div>
+            <div className="scroll-fade-left">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Why choose Privexio</p>
               <h2 className="mt-3 max-w-xl text-3xl font-bold text-foreground md:text-4xl">Enterprise-grade attention, built into every project.</h2>
               <p className="mt-6 max-w-lg text-base text-muted-foreground sm:text-lg">
                 You get a calm, accountable Privexio partner who keeps the work moving, documents decisions, and makes communication simple from first conversation through post-launch support.
               </p>
-              <div className="mt-9 grid gap-3 sm:max-w-xl sm:grid-cols-3">
+              <div className="stagger-parent mt-9 grid gap-3 sm:max-w-xl sm:grid-cols-3">
                 {collaborationMoments.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div key={item.label} className="stagger-child rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                       <Icon className="h-6 w-6 text-primary" />
                       <p className="mt-5 text-base font-bold text-slate-950">{item.label}</p>
                       <p className="mt-1 text-sm font-medium text-slate-500">{item.detail}</p>
@@ -161,16 +174,22 @@ const HomePage = () => {
                 })}
               </div>
             </div>
-            <div className="relative">
+            <div className="scroll-fade-right relative">
               <div className="absolute -right-6 -top-6 hidden h-40 w-40 rounded-full bg-primary/15 blur-3xl lg:block" />
               <div className="absolute -left-8 bottom-12 hidden h-28 w-28 rounded-full border border-primary/20 lg:block" />
               <div className="relative overflow-hidden rounded-[2rem] bg-white p-4 shadow-xl sm:p-5">
                 <div className="relative min-h-[28rem] overflow-hidden rounded-[1.5rem] bg-slate-950">
-                  <img
-                    src="/images/privexio-corporate-buildings.png"
-                    alt="Modern corporate office buildings"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                  />
+                  <ParallaxLayer
+                    className="absolute inset-x-0 -top-10 h-[calc(100%+5rem)]"
+                    from={-42}
+                    to={42}
+                  >
+                    <img
+                      src="/images/privexio-corporate-buildings.png"
+                      alt="Modern corporate office buildings"
+                      className="gsap-parallax-bg h-full w-full object-cover object-center"
+                    />
+                  </ParallaxLayer>
                 </div>
               </div>
             </div>
@@ -178,7 +197,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="case-studies" className="page-section scroll-mt-24 bg-background relative">
+      <section id="case-studies" className="scroll-fade-up page-section scroll-mt-24 bg-background relative">
         <ParallaxLayer
           className="absolute top-40 right-0 h-[400px] w-1/3 rounded-full bg-primary/5 blur-[100px] pointer-events-none"
           from={120}
@@ -196,14 +215,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <CTASection
-        heading="Ready to turn your website into a serious growth channel?"
-        description="Tell us your service priority and we'll recommend the highest-impact path across IT, software, cloud, web, mobile, or AI."
-        buttonText="Schedule a Consultation"
-        buttonLink={CALENDAR_URL}
-        secondaryText="Contact Us"
-        secondaryLink="/contact"
-      />
+      <div className="scroll-fade-up">
+        <CTASection
+          heading="Ready to turn your website into a serious growth channel?"
+          description="Tell us your service priority and we'll recommend the highest-impact path across IT, software, cloud, web, mobile, or AI."
+          buttonText="Schedule a Consultation"
+          buttonLink={CALENDAR_URL}
+          secondaryText="Contact Us"
+          secondaryLink="/contact"
+        />
+      </div>
 
       <Footer />
     </div>

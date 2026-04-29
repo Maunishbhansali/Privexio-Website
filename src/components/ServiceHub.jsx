@@ -7,15 +7,6 @@ import ParallaxLayer from '@/components/ParallaxLayer';
 import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (index) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, delay: index * 0.08 },
-  }),
-};
-
 const questionPrompts = {
   'managed-it-services': [
     'When should a business choose managed IT services instead of hiring internally?',
@@ -62,6 +53,20 @@ const ServiceHub = ({ service }) => {
   return (
     <>
       <section className="page-hero page-hero-lg relative overflow-hidden">
+        <ParallaxLayer
+          className="absolute inset-x-0 -top-24 h-[calc(100%+12rem)] opacity-35"
+          from={-70}
+          to={70}
+        >
+          <img
+            src="/images/privexio-corporate-buildings.png"
+            alt=""
+            className="gsap-parallax-bg h-full w-full object-cover object-center"
+            aria-hidden="true"
+          />
+        </ParallaxLayer>
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/88 to-slate-950/56" />
         <ParallaxLayer
           className="absolute -right-28 top-20 h-80 w-80 rounded-full bg-primary/25 blur-3xl"
           from={120}
@@ -123,22 +128,22 @@ const ServiceHub = ({ service }) => {
 
       <section className="page-section bg-slate-50/80">
         <div className="page-container">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <article className="rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
+          <div className="stagger-parent grid gap-6 lg:grid-cols-3">
+            <article className="stagger-child rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Who it is for</p>
               <h2 className="mt-3 text-2xl font-bold text-slate-950">Teams that need practical technology ownership.</h2>
               <p className="mt-4 text-muted-foreground">
                 Privexio works with growing organizations that need clearer systems, dependable delivery, and supportable technology decisions across {service.navName}.
               </p>
             </article>
-            <article className="rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
+            <article className="stagger-child rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Common problems</p>
               <h2 className="mt-3 text-2xl font-bold text-slate-950">Unclear ownership slows good teams down.</h2>
               <p className="mt-4 text-muted-foreground">
                 We help reduce disconnected tools, weak handoffs, unclear priorities, and systems that become hard to maintain after launch.
               </p>
             </article>
-            <article className="rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
+            <article className="stagger-child rounded-[1.75rem] border border-border bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Questions buyers ask</p>
               <div className="mt-4 space-y-4">
                 {buyerQuestions.map((question) => (
@@ -152,21 +157,16 @@ const ServiceHub = ({ service }) => {
 
       <section className="page-section bg-background">
         <div className="page-container">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
+          <div className="scroll-fade-up mx-auto mb-14 max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Specialized solution areas</p>
             <h2 className="mt-3 text-3xl font-bold md:text-5xl">Explore the focused capabilities inside this service line.</h2>
             <p className="mt-5 text-base text-muted-foreground sm:text-lg">{service.description}</p>
           </div>
-          <div className="grid gap-7 lg:grid-cols-3">
-            {service.categories.map((category, index) => (
-              <motion.article
+          <div className="stagger-parent grid gap-7 lg:grid-cols-3">
+            {service.categories.map((category) => (
+              <article
                 key={category.slug}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={cardVariants}
-                className="group flex h-full flex-col rounded-[1.75rem] border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:p-7"
+                className="stagger-child group flex h-full flex-col rounded-[1.75rem] border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:p-7"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <TrendingUp className="h-6 w-6" />
@@ -178,7 +178,7 @@ const ServiceHub = ({ service }) => {
                   Explore this service area
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>
@@ -187,23 +187,23 @@ const ServiceHub = ({ service }) => {
       <section className="page-section bg-slate-50/80">
         <div className="page-container">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
+            <div className="scroll-fade-left">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Related Privexio services</p>
               <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">Connect this work to the rest of your technology roadmap.</h2>
               <p className="mt-5 text-muted-foreground">
                 Search visibility and project results improve when each service line is connected to the right supporting capability, case study, and consultation path.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="stagger-parent grid gap-3 sm:grid-cols-3">
               {relatedServices.map((relatedService) => (
-                <Link key={relatedService.path} href={relatedService.path} className="rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+                <Link key={relatedService.path} href={relatedService.path} className="stagger-child rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
                   {relatedService.navName}
                 </Link>
               ))}
-              <Link href="/case-studies" className="rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+              <Link href="/case-studies" className="stagger-child rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
                 Privexio case studies
               </Link>
-              <Link href="/contact" className="rounded-2xl border border-primary/30 bg-primary p-5 font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-1 hover:bg-primary/90">
+              <Link href="/contact" className="stagger-child rounded-2xl border border-primary/30 bg-primary p-5 font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-1 hover:bg-primary/90">
                 Contact Privexio
               </Link>
             </div>

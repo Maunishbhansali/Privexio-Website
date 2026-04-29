@@ -46,7 +46,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
 
         <section className="page-section">
           <div className="page-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <aside className="rounded-[1.75rem] border border-border bg-card p-5 shadow-sm sm:p-7">
+            <aside className="scroll-fade-left rounded-[1.75rem] border border-border bg-card p-5 shadow-sm sm:p-7">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <TrendingUp className="h-6 w-6" />
               </div>
@@ -65,7 +65,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
                 </Link>
               </div>
             </aside>
-            <div>
+            <div className="scroll-fade-right">
               <div className="mb-10 rounded-[1.75rem] bg-slate-50 p-5 sm:p-7">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Service fit</p>
                 <p className="mt-3 text-base leading-7 text-muted-foreground sm:text-lg">
@@ -73,26 +73,26 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
                 </p>
               </div>
               <h2 className="text-2xl font-bold sm:text-3xl">What Privexio delivers</h2>
-              <div className="mt-7 grid gap-4 md:grid-cols-2">
+              <div className="stagger-parent mt-7 grid gap-4 md:grid-cols-2">
                 {category.deliverables.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5">
+                  <div key={item} className="stagger-child flex items-start gap-3 rounded-2xl border border-border bg-card p-5">
                     <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                     <span className="font-medium">{item}</span>
                   </div>
                 ))}
               </div>
               <h2 className="mt-12 text-2xl font-bold sm:text-3xl">Expected business outcomes</h2>
-              <div className="mt-7 space-y-4">
+              <div className="stagger-parent mt-7 space-y-4">
                 {category.outcomes.map((item) => (
-                  <div key={item} className="rounded-2xl bg-secondary/5 p-5 text-base font-semibold text-foreground sm:text-lg">{item}</div>
+                  <div key={item} className="stagger-child rounded-2xl bg-secondary/5 p-5 text-base font-semibold text-foreground sm:text-lg">{item}</div>
                 ))}
               </div>
               {relatedCategories.length > 0 && (
                 <>
                   <h2 className="mt-12 text-2xl font-bold sm:text-3xl">Related service areas</h2>
-                  <div className="mt-7 grid gap-4 md:grid-cols-2">
+                  <div className="stagger-parent mt-7 grid gap-4 md:grid-cols-2">
                     {relatedCategories.map((relatedCategory) => (
-                      <Link key={relatedCategory.slug} href={`${service.path}/${relatedCategory.slug}`} className="rounded-2xl border border-border bg-card p-5 font-semibold text-foreground transition hover:border-primary/40 hover:text-primary">
+                      <Link key={relatedCategory.slug} href={`${service.path}/${relatedCategory.slug}`} className="stagger-child rounded-2xl border border-border bg-card p-5 font-semibold text-foreground transition hover:border-primary/40 hover:text-primary">
                         {relatedCategory.title}
                       </Link>
                     ))}
@@ -106,7 +106,7 @@ const ServiceCategoryPage = ({ serviceSlug, categorySlug }) => {
         {relatedCaseStudy && (
           <section className="page-section bg-slate-50">
             <div className="page-container">
-              <div className="rounded-[2rem] bg-slate-950 p-6 text-white sm:p-8 md:p-12">
+              <div className="scroll-scale rounded-[2rem] bg-slate-950 p-6 text-white sm:p-8 md:p-12">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Related case study</p>
                 <h2 className="mt-3 max-w-4xl text-3xl font-bold text-white md:text-4xl">{relatedCaseStudy.title}</h2>
                 <p className="mt-5 max-w-3xl text-slate-300">{relatedCaseStudy.summary}</p>

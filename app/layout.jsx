@@ -1,5 +1,6 @@
 import '@/index.css';
 import 'leaflet/dist/leaflet.css';
+import ScrollAnimations from '@/components/ScrollAnimations';
 import { DEFAULT_OG_IMAGE, getGlobalStructuredData, SITE_NAME, SITE_URL } from '@/lib/seo';
 
 const defaultTitle = 'Privexio | Managed IT, Cloud, Cybersecurity & Software Services';
@@ -72,6 +73,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+        <ScrollAnimations />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </body>
     </html>
