@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CheckCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,6 +11,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { trackEvent } from '@/lib/analytics';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/maunish.bhansali@privexio.com';
 
@@ -63,17 +64,26 @@ const FreeAuditModal = ({ open, onOpenChange }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
     if (!open) {
       setErrors({});
       setIsSubmitting(false);
       setIsSubmitted(false);
+      hasStartedRef.current = false;
     }
   }, [open]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    if (!hasStartedRef.current) {
+      hasStartedRef.current = true;
+      // Fires once when a visitor first starts filling the Free Audit form.
+      trackEvent('free_audit_form_start', { form_name: 'free_growth_audit' });
+    }
+
     setFormData((current) => ({ ...current, [name]: value }));
     setErrors((current) => ({ ...current, [name]: undefined, submit: undefined }));
   };
@@ -91,6 +101,15 @@ const FreeAuditModal = ({ open, onOpenChange }) => {
     }
 
     setErrors(nextErrors);
+
+    if (Object.keys(nextErrors).length > 0) {
+      // Fires when client-side validation blocks the Free Audit form.
+      trackEvent('free_audit_form_error', {
+        form_name: 'free_growth_audit',
+        error_type: 'validation',
+      });
+    }
+
     return Object.keys(nextErrors).length === 0;
   };
 
@@ -126,9 +145,26 @@ const FreeAuditModal = ({ open, onOpenChange }) => {
         throw new Error('Audit request submission failed');
       }
 
+      // Fires only after the Free Audit request is accepted by the existing form endpoint.
+      trackEvent('free_audit_form_submit', {
+        form_name: 'free_growth_audit',
+        company_name: formData.companyName.trim(),
+        website_url: formData.websiteUrl.trim(),
+        service_interest: formData.serviceInterest || 'Not specified',
+      });
+
       setIsSubmitted(true);
       setFormData(initialFormData);
     } catch (error) {
+      // Fires when the form endpoint rejects or cannot receive the Free Audit request.
+      trackEvent('free_audit_form_error', {
+        form_name: 'free_growth_audit',
+        error_type: 'submission',
+        company_name: formData.companyName.trim(),
+        website_url: formData.websiteUrl.trim(),
+        service_interest: formData.serviceInterest || 'Not specified',
+      });
+
       setErrors({
         submit: 'We could not send your request. Please try again in a moment.',
       });

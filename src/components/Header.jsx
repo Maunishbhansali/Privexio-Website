@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { CalendarDays, ChevronDown, Menu, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import FreeAuditModal from '@/components/FreeAuditModal';
+import { trackEvent } from '@/lib/analytics';
 import { CALENDAR_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
@@ -26,6 +27,18 @@ const Header = () => {
 
     hoverLockUntilRef.current = now + 180;
     setActiveServicePath(path);
+  };
+
+  const handleFreeAuditOpen = () => {
+    // Fires when the header Free Audit CTA opens the audit modal.
+    trackEvent('free_audit_click', { cta_location: 'header' });
+    setIsFreeAuditOpen(true);
+  };
+
+  const handleServicesClick = () => {
+    // Fires when the desktop Services dropdown trigger is clicked.
+    trackEvent('services_click', { cta_location: 'header_navigation' });
+    setIsServicesOpen((open) => !open);
   };
 
   useEffect(() => {
@@ -61,7 +74,7 @@ const Header = () => {
               aria-expanded={isServicesOpen}
               aria-haspopup="menu"
               aria-controls="desktop-services-menu"
-              onClick={() => setIsServicesOpen((open) => !open)}
+              onClick={handleServicesClick}
             >
               Services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
@@ -84,7 +97,13 @@ const Header = () => {
                               isActive ? 'bg-primary/10' : 'hover:bg-slate-50'
                             }`}
                           >
-                            <Link href={service.path} className="flex items-start gap-3 text-sm text-foreground hover:text-primary">
+                            <Link
+                              href={service.path}
+                              className="flex items-start gap-3 text-sm text-foreground hover:text-primary"
+                              data-analytics-event="services_click"
+                              data-analytics-label={service.navName}
+                              data-service-name={service.navName}
+                            >
                               <Icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${isActive ? 'text-primary' : ''}`} />
                               <div className="min-w-0">
                                 <span className="block font-semibold leading-snug">{service.navName}</span>
@@ -99,6 +118,9 @@ const Header = () => {
                                       key={category.slug}
                                       href={`${service.path}/${category.slug}`}
                                       className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50 hover:text-primary"
+                                      data-analytics-event="services_click"
+                                      data-analytics-label={category.title}
+                                      data-service-name={service.navName}
                                     >
                                       {category.title}
                                     </Link>
@@ -120,7 +142,7 @@ const Header = () => {
           <Link href="/about" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
           <Link href="/contact" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
-          <Button type="button" variant="outline" className="whitespace-nowrap rounded-full px-4" onClick={() => setIsFreeAuditOpen(true)}>
+          <Button type="button" variant="outline" className="whitespace-nowrap rounded-full px-4" onClick={handleFreeAuditOpen}>
             <Search className="mr-2 h-4 w-4" />
             Free Audit
           </Button>
@@ -151,7 +173,14 @@ const Header = () => {
             <span className="block text-sm font-bold uppercase tracking-wider text-muted-foreground">Services</span>
             <div className="ml-2 space-y-2 border-l-2 border-border pl-4">
               {serviceCatalog.map((service) => (
-                <Link key={service.path} href={service.path} className="block text-sm text-foreground">
+                <Link
+                  key={service.path}
+                  href={service.path}
+                  className="block text-sm text-foreground"
+                  data-analytics-event="services_click"
+                  data-analytics-label={service.navName}
+                  data-service-name={service.navName}
+                >
                   {service.navName}
                 </Link>
               ))}
@@ -165,7 +194,7 @@ const Header = () => {
               <CalendarDays className="mr-2 h-4 w-4" />
               Schedule a Consultation
             </a>
-            <button type="button" className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-bold text-primary" onClick={() => setIsFreeAuditOpen(true)}>
+            <button type="button" className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-bold text-primary" onClick={handleFreeAuditOpen}>
               <Search className="mr-2 h-4 w-4" />
               Free Audit
             </button>

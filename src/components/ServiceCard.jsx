@@ -14,6 +14,9 @@ const ServiceCard = ({ icon: Icon, title, description, link }) => {
       <Link 
         href={link} 
         className="inline-flex items-center text-primary font-medium hover:text-primary/80"
+        data-analytics-event="service_card_click"
+        data-analytics-label={title}
+        data-service-name={title}
       >
         Learn More <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 smooth-transition" />
       </Link>

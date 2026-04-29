@@ -174,7 +174,13 @@ const ServiceHub = ({ service }) => {
                 <h3 className="break-words text-xl font-bold sm:text-2xl">{category.title}</h3>
                 <p className="mt-4 text-sm font-semibold text-primary">{category.trend}</p>
                 <p className="mt-4 flex-grow text-muted-foreground">{category.intro}</p>
-                <Link href={`${service.path}/${category.slug}`} className="mt-6 inline-flex items-center font-semibold text-primary">
+                <Link
+                  href={`${service.path}/${category.slug}`}
+                  className="mt-6 inline-flex items-center font-semibold text-primary"
+                  data-analytics-event="service_card_click"
+                  data-analytics-label={category.title}
+                  data-service-name={service.navName}
+                >
                   Explore this service area
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -196,7 +202,14 @@ const ServiceHub = ({ service }) => {
             </div>
             <div className="stagger-parent grid gap-3 sm:grid-cols-3">
               {relatedServices.map((relatedService) => (
-                <Link key={relatedService.path} href={relatedService.path} className="stagger-child rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+                <Link
+                  key={relatedService.path}
+                  href={relatedService.path}
+                  className="stagger-child rounded-2xl border border-border bg-white p-5 font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary"
+                  data-analytics-event="service_card_click"
+                  data-analytics-label={relatedService.navName}
+                  data-service-name={relatedService.navName}
+                >
                   {relatedService.navName}
                 </Link>
               ))}

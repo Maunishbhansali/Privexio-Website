@@ -1,6 +1,7 @@
 import '@/index.css';
 import 'leaflet/dist/leaflet.css';
 import Script from 'next/script';
+import AnalyticsEvents from '@/components/AnalyticsEvents';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import { DEFAULT_OG_IMAGE, getGlobalStructuredData, SITE_NAME, SITE_URL } from '@/lib/seo';
 
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         {children}
+        <AnalyticsEvents />
         <ScrollAnimations />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </body>
