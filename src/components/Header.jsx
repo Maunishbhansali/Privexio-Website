@@ -1,14 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CalendarDays, ChevronDown, Mail, Menu, X } from 'lucide-react';
+import { CalendarDays, ChevronDown, Menu, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CALENDAR_URL, MAILTO_URL } from '@/lib/site-links';
+import FreeAuditModal from '@/components/FreeAuditModal';
+import { CALENDAR_URL } from '@/lib/site-links';
 import { serviceCatalog } from '@/data/serviceCatalog';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isFreeAuditOpen, setIsFreeAuditOpen] = useState(false);
   const [activeServicePath, setActiveServicePath] = useState(serviceCatalog[0]?.path ?? '/msp');
   const hoverLockUntilRef = useRef(0);
   const pathname = usePathname();
@@ -118,12 +120,10 @@ const Header = () => {
           <Link href="/about" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
           <Link href="/contact" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
-          <a href={MAILTO_URL}>
-            <Button variant="outline" className="whitespace-nowrap rounded-full px-4">
-              <Mail className="mr-2 h-4 w-4" />
-              Email Us
-            </Button>
-          </a>
+          <Button type="button" variant="outline" className="whitespace-nowrap rounded-full px-4" onClick={() => setIsFreeAuditOpen(true)}>
+            <Search className="mr-2 h-4 w-4" />
+            Free Audit
+          </Button>
           <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
             <Button className="whitespace-nowrap rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90">
               <CalendarDays className="mr-2 h-4 w-4" />
@@ -165,13 +165,14 @@ const Header = () => {
               <CalendarDays className="mr-2 h-4 w-4" />
               Schedule a Consultation
             </a>
-            <a href={MAILTO_URL} className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-bold text-primary">
-              <Mail className="mr-2 h-4 w-4" />
-              Email Us
-            </a>
+            <button type="button" className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-bold text-primary" onClick={() => setIsFreeAuditOpen(true)}>
+              <Search className="mr-2 h-4 w-4" />
+              Free Audit
+            </button>
           </div>
         </div>
       )}
+      <FreeAuditModal open={isFreeAuditOpen} onOpenChange={setIsFreeAuditOpen} />
     </header>
   );
 };
