@@ -62,6 +62,7 @@ export const routeKeywords = {
   '/ai-ml': ['AI automation company', 'AI chatbot development', 'generative AI automation', 'business automation'],
   '/it-consulting': ['IT consulting services', 'digital transformation consulting', 'technology roadmap', 'vCIO'],
   '/about': ['About Privexio', 'Privexio founder', 'Privexio company'],
+  '/careers': ['Privexio careers', 'technology careers Hamilton', 'IT careers Hamilton', 'software careers'],
   '/contact': ['Privexio contact', 'Privexio Hamilton', 'schedule IT consultation'],
 };
 
@@ -80,6 +81,11 @@ const pageMeta = {
     title: 'About Privexio | Technology Delivery Partner',
     description:
       'Learn about Privexio, a Hamilton technology services company helping teams modernize IT, strengthen security, and build supportable digital systems.',
+  },
+  '/careers': {
+    title: 'Careers at Privexio | Technology, IT, Cloud & Software Roles',
+    description:
+      'Explore careers at Privexio for people interested in managed IT, cybersecurity, cloud, software, web, mobile, AI, and digital transformation delivery.',
   },
   '/contact': {
     title: 'Contact Privexio | Book a Technology Consultation',
@@ -185,7 +191,7 @@ export function getRouteSeo(slugSegments = []) {
       canonical: requestedPath,
       requestedPath,
       keywords: routeKeywords[requestedPath] ?? [],
-      type: requestedPath === '/about' ? 'about' : requestedPath === '/contact' ? 'contact' : 'page',
+      type: requestedPath === '/about' ? 'about' : requestedPath === '/careers' ? 'careers' : requestedPath === '/contact' ? 'contact' : 'page',
     };
   }
 
@@ -399,6 +405,18 @@ export function getPageStructuredData(seo) {
     });
   }
 
+  if (seo.type === 'careers') {
+    graph.push({
+      '@type': 'CollectionPage',
+      '@id': `${absoluteUrl('/careers')}#careerspage`,
+      url: absoluteUrl('/careers'),
+      name: 'Careers at Privexio',
+      description: seo.description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#organization` },
+    });
+  }
+
   if (!graph.length) {
     return null;
   }
@@ -423,6 +441,7 @@ export function getCanonicalSitemapRoutes() {
     '/case-studies',
     ...caseStudyRoutes,
     '/about',
+    '/careers',
     '/contact',
     '/privacy',
     '/terms',

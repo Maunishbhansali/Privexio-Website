@@ -3,7 +3,7 @@ import { caseStudies } from '@/data/caseStudies';
 import { getServiceBySlug } from '@/data/serviceCatalog';
 import { getPageStructuredData, getRouteSeo, serviceSlugByRoute, toNextMetadata } from '@/lib/seo';
 
-const staticRoutes = ['', ...Object.keys(serviceSlugByRoute), 'additional-services', 'case-studies', 'about', 'contact', 'privacy', 'terms'];
+const staticRoutes = ['', ...Object.keys(serviceSlugByRoute), 'additional-services', 'case-studies', 'about', 'careers', 'contact', 'privacy', 'terms'];
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;

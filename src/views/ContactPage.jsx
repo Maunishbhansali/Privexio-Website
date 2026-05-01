@@ -112,6 +112,8 @@ const ContactPage = () => {
           eyebrow="Contact"
           title="Contact Privexio for a practical technology consultation."
           description="Connect with our Hamilton team for managed IT, cybersecurity, cloud, software, web, mobile, AI, or digital transformation planning."
+          imageSrc="/images/contact-consultation-hero.webp"
+          imagePosition="62% 50%"
         />
 
         <section className="page-section page-container">

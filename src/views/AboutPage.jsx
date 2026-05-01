@@ -21,6 +21,8 @@ const AboutPage = () => {
           eyebrow="Founded in 2023"
           title="About Privexio"
           description="Privexio is a Hamilton technology services company helping teams run dependable IT, strengthen security, modernize cloud operations, and build supportable digital systems."
+          imageSrc="/images/about-technology-delivery-hero.webp"
+          imagePosition="58% 50%"
         />
 
         <section className="page-section">

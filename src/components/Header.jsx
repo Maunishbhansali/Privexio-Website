@@ -140,6 +140,7 @@ const Header = () => {
 
           <Link href="/case-studies" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Case Studies</Link>
           <Link href="/about" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">About</Link>
+          <Link href="/careers" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Careers</Link>
           <Link href="/contact" className="whitespace-nowrap text-sm font-medium text-foreground hover:text-primary smooth-transition">Contact</Link>
 
           <Button type="button" variant="outline" className="whitespace-nowrap rounded-full px-4" onClick={handleFreeAuditOpen}>
@@ -188,6 +189,7 @@ const Header = () => {
           </div>
           <Link href="/case-studies" className="block text-sm font-medium text-foreground">Case Studies</Link>
           <Link href="/about" className="block text-sm font-medium text-foreground">About</Link>
+          <Link href="/careers" className="block text-sm font-medium text-foreground">Careers</Link>
           <Link href="/contact" className="block text-sm font-medium text-foreground">Contact</Link>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">

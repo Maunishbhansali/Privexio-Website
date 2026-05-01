@@ -19,6 +19,7 @@ import ServiceCategoryPage from '@/views/ServiceCategoryPage';
 import CaseStudiesPage from '@/views/CaseStudiesPage';
 import CaseStudyPage from '@/views/CaseStudyPage';
 import AboutPage from '@/views/AboutPage';
+import CareersPage from '@/views/CareersPage';
 import ContactPage from '@/views/ContactPage';
 import PrivacyPolicyPage from '@/views/PrivacyPolicyPage';
 import TermsOfServicePage from '@/views/TermsOfServicePage';
@@ -37,6 +38,7 @@ const routeComponents = {
   'additional-services': AdditionalServicesPage,
   'case-studies': CaseStudiesPage,
   about: AboutPage,
+  careers: CareersPage,
   contact: ContactPage,
   privacy: PrivacyPolicyPage,
   terms: TermsOfServicePage,
